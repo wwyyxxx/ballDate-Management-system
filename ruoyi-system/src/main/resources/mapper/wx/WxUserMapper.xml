@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.wx.mapper.WxUserMapper">
+    
+    <resultMap type="WxUser" id="WxUserResult">
+        <result property="id"    column="id"    />
+        <result property="openid"    column="openid"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="sex"    column="sex"    />
+        <result property="avatar"    column="avatar"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
+    <sql id="selectWxUserVo">
+        select id, openid, nick_name, sex, avatar, status from wx_user
+    </sql>
+
+    <select id="selectWxUserList" parameterType="WxUser" resultMap="WxUserResult">
+        <include refid="selectWxUserVo"/>
+        <where>  
+            <if test="openid != null  and openid != ''"> and openid = #{openid}</if>
+            <if test="nickName != null  and nickName != ''"> and nick_name like concat('%', #{nickName}, '%')</if>
+            <if test="sex != null "> and sex = #{sex}</if>
+            <if test="avatar != null  and avatar != ''"> and avatar = #{avatar}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectWxUserById" parameterType="Long" resultMap="WxUserResult">
+        <include refid="selectWxUserVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertWxUser" parameterType="WxUser" useGeneratedKeys="true" keyProperty="id">
+        insert into wx_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="openid != null  and openid != ''">openid,</if>
+            <if test="nickName != null  and nickName != ''">nick_name,</if>
+            <if test="sex != null ">sex,</if>
+            <if test="avatar != null  and avatar != ''">avatar,</if>
+            <if test="status != null  and status != ''">status,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="openid != null  and openid != ''">#{openid},</if>
+            <if test="nickName != null  and nickName != ''">#{nickName},</if>
+            <if test="sex != null ">#{sex},</if>
+            <if test="avatar != null  and avatar != ''">#{avatar},</if>
+            <if test="status != null  and status != ''">#{status},</if>
+         </trim>
+    </insert>
+
+    <update id="updateWxUser" parameterType="WxUser">
+        update wx_user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="openid != null  and openid != ''">openid = #{openid},</if>
+            <if test="nickName != null  and nickName != ''">nick_name = #{nickName},</if>
+            <if test="sex != null ">sex = #{sex},</if>
+            <if test="avatar != null  and avatar != ''">avatar = #{avatar},</if>
+            <if test="status != null  and status != ''">status = #{status},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteWxUserById" parameterType="Long">
+        delete from wx_user where id = #{id}
+    </delete>
+
+    <delete id="deleteWxUserByIds" parameterType="String">
+        delete from wx_user where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

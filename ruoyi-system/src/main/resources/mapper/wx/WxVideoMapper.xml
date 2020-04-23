@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.wx.mapper.WxVideoMapper">
+    
+    <resultMap type="WxVideo" id="WxVideoResult">
+        <result property="id"    column="id"    />
+        <result property="uId"    column="u_id"    />
+        <result property="title"    column="title"    />
+        <result property="type"    column="type"    />
+        <result property="summary"    column="summary"    />
+        <result property="url"    column="url"    />
+        <result property="status"    column="status"    />
+        <result property="creatTime"    column="creat_time"    />
+    </resultMap>
+
+    <sql id="selectWxVideoVo">
+        select id, u_id, title, type, summary, url, status, creat_time from wx_video
+    </sql>
+
+    <select id="selectWxVideoList" parameterType="WxVideo" resultMap="WxVideoResult">
+        <include refid="selectWxVideoVo"/>
+        <where>  
+            <if test="uId != null "> and u_id = #{uId}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="summary != null  and summary != ''"> and summary = #{summary}</if>
+            <if test="url != null  and url != ''"> and url = #{url}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="creatTime != null "> and creat_time = #{creatTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectWxVideoById" parameterType="Long" resultMap="WxVideoResult">
+        <include refid="selectWxVideoVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertWxVideo" parameterType="WxVideo" useGeneratedKeys="true" keyProperty="id">
+        insert into wx_video
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uId != null ">u_id,</if>
+            <if test="title != null  and title != ''">title,</if>
+            <if test="type != null ">type,</if>
+            <if test="summary != null  and summary != ''">summary,</if>
+            <if test="url != null  and url != ''">url,</if>
+            <if test="status != null ">status,</if>
+            <if test="creatTime != null ">creat_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uId != null ">#{uId},</if>
+            <if test="title != null  and title != ''">#{title},</if>
+            <if test="type != null ">#{type},</if>
+            <if test="summary != null  and summary != ''">#{summary},</if>
+            <if test="url != null  and url != ''">#{url},</if>
+            <if test="status != null ">#{status},</if>
+            <if test="creatTime != null ">#{creatTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateWxVideo" parameterType="WxVideo">
+        update wx_video
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="uId != null ">u_id = #{uId},</if>
+            <if test="title != null  and title != ''">title = #{title},</if>
+            <if test="type != null ">type = #{type},</if>
+            <if test="summary != null  and summary != ''">summary = #{summary},</if>
+            <if test="url != null  and url != ''">url = #{url},</if>
+            <if test="status != null ">status = #{status},</if>
+            <if test="creatTime != null ">creat_time = #{creatTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteWxVideoById" parameterType="Long">
+        delete from wx_video where id = #{id}
+    </delete>
+
+    <delete id="deleteWxVideoByIds" parameterType="String">
+        delete from wx_video where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

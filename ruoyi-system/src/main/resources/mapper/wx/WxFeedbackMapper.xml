@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.wx.mapper.WxFeedbackMapper">
+    
+    <resultMap type="WxFeedback" id="WxFeedbackResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="role"    column="role"    />
+        <result property="content"    column="content"    />
+        <result property="contact"    column="contact"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectWxFeedbackVo">
+        select id, name, role, content, contact, create_time from wx_feedback
+    </sql>
+
+    <select id="selectWxFeedbackList" parameterType="WxFeedback" resultMap="WxFeedbackResult">
+        <include refid="selectWxFeedbackVo"/>
+        <where>  
+            <if test="name != null and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="role != null  and role != ''"> and role = #{role}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="contact != null  and contact != ''"> and contact = #{contact}</if>
+        </where>
+    </select>
+    
+    <select id="selectWxFeedbackById" parameterType="Long" resultMap="WxFeedbackResult">
+        <include refid="selectWxFeedbackVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertWxFeedback" parameterType="WxFeedback" useGeneratedKeys="true" keyProperty="id">
+        insert into wx_feedback
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">name,</if>
+            <if test="role != null  and role != ''">role,</if>
+            <if test="content != null  and content != ''">content,</if>
+            <if test="contact != null  and contact != ''">contact,</if>
+            <if test="createTime != null ">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null ">#{name},</if>
+            <if test="role != null  and role != ''">#{role},</if>
+            <if test="content != null  and content != ''">#{content},</if>
+            <if test="contact != null  and contact != ''">#{contact},</if>
+            <if test="createTime != null ">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateWxFeedback" parameterType="WxFeedback">
+        update wx_feedback
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="role != null  and role != ''">role = #{role},</if>
+            <if test="content != null  and content != ''">content = #{content},</if>
+            <if test="contact != null  and contact != ''">contact = #{contact},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteWxFeedbackById" parameterType="Long">
+        delete from wx_feedback where id = #{id}
+    </delete>
+
+    <delete id="deleteWxFeedbackByIds" parameterType="String">
+        delete from wx_feedback where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
