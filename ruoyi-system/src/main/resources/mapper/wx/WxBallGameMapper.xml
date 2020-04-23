@@ -20,6 +20,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="createTime"    column="create_time"    />
     </resultMap>
 
+    <resultMap type="WxUser" id="WxUserResult">
+        <result property="id"    column="id"    />
+        <result property="openid"    column="openid"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="sex"    column="sex"    />
+        <result property="avatar"    column="avatar"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
     <sql id="selectWxBallGameVo">
         select id, title, summary, play_date, type, score_mine, score_other, people_numner, address, status, cost, contact, create_time from wx_ball_game
     </sql>
@@ -40,12 +49,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="contact != null  and contact != ''"> and contact = #{contact}</if>
         </where>
     </select>
-    
+
     <select id="selectWxBallGameById" parameterType="Long" resultMap="WxBallGameResult">
         <include refid="selectWxBallGameVo"/>
         where id = #{id}
     </select>
-        
+
     <insert id="insertWxBallGame" parameterType="WxBallGame" useGeneratedKeys="true" keyProperty="id">
         insert into wx_ball_game
         <trim prefix="(" suffix=")" suffixOverrides=",">

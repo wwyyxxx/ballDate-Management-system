@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.wx.mapper.WxUserGameMapper">
+    
+    <resultMap type="WxUserGame" id="WxUserGameResult">
+        <result property="id"    column="id"    />
+        <result property="gId"    column="g_id"    />
+        <result property="uId"    column="u_id"    />
+        <result property="createTime"    column="create_time"    />
+        <collection  property="wxUsers"   javaType="java.util.List"        resultMap="WxUserResult" />
+    </resultMap>
+
+    <resultMap type="WxUser" id="WxUserResult">
+        <result property="id"    column="id"    />
+        <result property="openid"    column="openid"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="sex"    column="sex"    />
+        <result property="avatar"    column="avatar"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
+    <sql id="selectWxUserGameVo">
+        select u.id, u.openid, u.nick_name, u.sex, u.avatar, u.status
+        from wx_user_game ug
+        left join wx_user u on ug.u_id = u.id
+    </sql>
+
+    <select id="selectWxUserGameList" parameterType="WxUserGame" resultMap="WxUserGameResult">
+        <include refid="selectWxUserGameVo"/>
+        <where>  
+            <if test="gId != null "> and g_id = #{gId}</if>
+            <if test="uId != null "> and u_id = #{uId}</if>
+        </where>
+    </select>
+    
+    <select id="selectWxUserGameById" parameterType="Long" resultMap="WxUserGameResult">
+        <include refid="selectWxUserGameVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertWxUserGame" parameterType="WxUserGame" useGeneratedKeys="true" keyProperty="id">
+        insert into wx_user_game
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="gId != null ">g_id,</if>
+            <if test="uId != null ">u_id,</if>
+            <if test="createTime != null ">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="gId != null ">#{gId},</if>
+            <if test="uId != null ">#{uId},</if>
+            <if test="createTime != null ">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateWxUserGame" parameterType="WxUserGame">
+        update wx_user_game
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="gId != null ">g_id = #{gId},</if>
+            <if test="uId != null ">u_id = #{uId},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteWxUserGameById" parameterType="Long">
+        delete from wx_user_game where id = #{id}
+    </delete>
+
+    <delete id="deleteWxUserGameByIds" parameterType="String">
+        delete from wx_user_game where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
