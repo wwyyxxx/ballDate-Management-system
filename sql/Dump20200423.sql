@@ -1,15 +1,13 @@
-CREATE DATABASE  IF NOT EXISTS `ry` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `ry`;
--- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: ry
 -- ------------------------------------------------------
--- Server version	5.7.28-log
+-- Server version	5.7.20-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -23,7 +21,7 @@ USE `ry`;
 
 DROP TABLE IF EXISTS `gen_table`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gen_table` (
   `table_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `table_name` varchar(200) DEFAULT '' COMMENT '表名称',
@@ -61,7 +59,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `gen_table_column`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gen_table_column` (
   `column_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `table_id` varchar(64) DEFAULT NULL COMMENT '归属表编号',
@@ -105,7 +103,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `qrtz_blob_triggers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qrtz_blob_triggers` (
   `sched_name` varchar(120) NOT NULL,
   `trigger_name` varchar(200) NOT NULL,
@@ -131,7 +129,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `qrtz_calendars`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qrtz_calendars` (
   `sched_name` varchar(120) NOT NULL,
   `calendar_name` varchar(200) NOT NULL,
@@ -155,7 +153,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `qrtz_cron_triggers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qrtz_cron_triggers` (
   `sched_name` varchar(120) NOT NULL,
   `trigger_name` varchar(200) NOT NULL,
@@ -183,7 +181,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `qrtz_fired_triggers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qrtz_fired_triggers` (
   `sched_name` varchar(120) NOT NULL,
   `entry_id` varchar(95) NOT NULL,
@@ -217,7 +215,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `qrtz_job_details`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qrtz_job_details` (
   `sched_name` varchar(120) NOT NULL,
   `job_name` varchar(200) NOT NULL,
@@ -239,7 +237,7 @@ CREATE TABLE `qrtz_job_details` (
 
 LOCK TABLES `qrtz_job_details` WRITE;
 /*!40000 ALTER TABLE `qrtz_job_details` DISABLE KEYS */;
-INSERT INTO `qrtz_job_details` VALUES ('RuoyiScheduler','TASK_CLASS_NAME1','DEFAULT',NULL,'com.ruoyi.quartz.util.QuartzDisallowConcurrentExecution','0','1','0','0',_binary '�\�\0sr\0org.quartz.JobDataMap���迩�\�\0\0xr\0&org.quartz.utils.StringKeyDirtyFlagMap�\�\��\�](\0Z\0allowsTransientDataxr\0org.quartz.utils.DirtyFlagMap\�.�(v\n\�\0Z\0dirtyL\0mapt\0Ljava/util/Map;xpsr\0java.util.HashMap\��\�`\�\0F\0\nloadFactorI\0	thresholdxp?@\0\0\0\0\0w\0\0\0\0\0\0t\0TASK_PROPERTIESsr\0com.ruoyi.quartz.domain.SysJob\0\0\0\0\0\0\0\0L\0\nconcurrentt\0Ljava/lang/String;L\0cronExpressionq\0~\0	L\0invokeTargetq\0~\0	L\0jobGroupq\0~\0	L\0jobIdt\0Ljava/lang/Long;L\0jobNameq\0~\0	L\0\rmisfirePolicyq\0~\0	L\0statusq\0~\0	xr\0\'com.ruoyi.common.core.domain.BaseEntity\0\0\0\0\0\0\0\0L\0createByq\0~\0	L\0\ncreateTimet\0Ljava/util/Date;L\0paramsq\0~\0L\0remarkq\0~\0	L\0searchValueq\0~\0	L\0updateByq\0~\0	L\0\nupdateTimeq\0~\0xpt\0adminsr\0java.util.Datehj�KYt\0\0xpw\0\0b,\�)\�xpt\0\0pppt\01t\00/10 * * * * ?t\0ryTask.ryNoParamst\0DEFAULTsr\0java.lang.Long;�\�̏#\�\0J\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0\0\0\0t\0系统默认（无参）t\03t\01x\0'),('RuoyiScheduler','TASK_CLASS_NAME2','DEFAULT',NULL,'com.ruoyi.quartz.util.QuartzDisallowConcurrentExecution','0','1','0','0',_binary '�\�\0sr\0org.quartz.JobDataMap���迩�\�\0\0xr\0&org.quartz.utils.StringKeyDirtyFlagMap�\�\��\�](\0Z\0allowsTransientDataxr\0org.quartz.utils.DirtyFlagMap\�.�(v\n\�\0Z\0dirtyL\0mapt\0Ljava/util/Map;xpsr\0java.util.HashMap\��\�`\�\0F\0\nloadFactorI\0	thresholdxp?@\0\0\0\0\0w\0\0\0\0\0\0t\0TASK_PROPERTIESsr\0com.ruoyi.quartz.domain.SysJob\0\0\0\0\0\0\0\0L\0\nconcurrentt\0Ljava/lang/String;L\0cronExpressionq\0~\0	L\0invokeTargetq\0~\0	L\0jobGroupq\0~\0	L\0jobIdt\0Ljava/lang/Long;L\0jobNameq\0~\0	L\0\rmisfirePolicyq\0~\0	L\0statusq\0~\0	xr\0\'com.ruoyi.common.core.domain.BaseEntity\0\0\0\0\0\0\0\0L\0createByq\0~\0	L\0\ncreateTimet\0Ljava/util/Date;L\0paramsq\0~\0L\0remarkq\0~\0	L\0searchValueq\0~\0	L\0updateByq\0~\0	L\0\nupdateTimeq\0~\0xpt\0adminsr\0java.util.Datehj�KYt\0\0xpw\0\0b,\�)\�xpt\0\0pppt\01t\00/15 * * * * ?t\0ryTask.ryParams(\'ry\')t\0DEFAULTsr\0java.lang.Long;�\�̏#\�\0J\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0\0\0\0t\0系统默认（有参）t\03t\01x\0'),('RuoyiScheduler','TASK_CLASS_NAME3','DEFAULT',NULL,'com.ruoyi.quartz.util.QuartzDisallowConcurrentExecution','0','1','0','0',_binary '�\�\0sr\0org.quartz.JobDataMap���迩�\�\0\0xr\0&org.quartz.utils.StringKeyDirtyFlagMap�\�\��\�](\0Z\0allowsTransientDataxr\0org.quartz.utils.DirtyFlagMap\�.�(v\n\�\0Z\0dirtyL\0mapt\0Ljava/util/Map;xpsr\0java.util.HashMap\��\�`\�\0F\0\nloadFactorI\0	thresholdxp?@\0\0\0\0\0w\0\0\0\0\0\0t\0TASK_PROPERTIESsr\0com.ruoyi.quartz.domain.SysJob\0\0\0\0\0\0\0\0L\0\nconcurrentt\0Ljava/lang/String;L\0cronExpressionq\0~\0	L\0invokeTargetq\0~\0	L\0jobGroupq\0~\0	L\0jobIdt\0Ljava/lang/Long;L\0jobNameq\0~\0	L\0\rmisfirePolicyq\0~\0	L\0statusq\0~\0	xr\0\'com.ruoyi.common.core.domain.BaseEntity\0\0\0\0\0\0\0\0L\0createByq\0~\0	L\0\ncreateTimet\0Ljava/util/Date;L\0paramsq\0~\0L\0remarkq\0~\0	L\0searchValueq\0~\0	L\0updateByq\0~\0	L\0\nupdateTimeq\0~\0xpt\0adminsr\0java.util.Datehj�KYt\0\0xpw\0\0b,\�)\�xpt\0\0pppt\01t\00/20 * * * * ?t\08ryTask.ryMultipleParams(\'ry\', true, 2000L, 316.50D, 100)t\0DEFAULTsr\0java.lang.Long;�\�̏#\�\0J\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0\0\0\0t\0系统默认（多参）t\03t\01x\0');
+INSERT INTO `qrtz_job_details` VALUES ('RuoyiScheduler','TASK_CLASS_NAME1','DEFAULT',NULL,'com.ruoyi.quartz.util.QuartzDisallowConcurrentExecution','0','1','0','0','�\�\0sr\0org.quartz.JobDataMap���迩�\�\0\0xr\0&org.quartz.utils.StringKeyDirtyFlagMap�\�\��\�](\0Z\0allowsTransientDataxr\0org.quartz.utils.DirtyFlagMap\�.�(v\n\�\0Z\0dirtyL\0mapt\0Ljava/util/Map;xpsr\0java.util.HashMap\��\�`\�\0F\0\nloadFactorI\0	thresholdxp?@\0\0\0\0\0w\0\0\0\0\0\0t\0TASK_PROPERTIESsr\0com.ruoyi.quartz.domain.SysJob\0\0\0\0\0\0\0\0L\0\nconcurrentt\0Ljava/lang/String;L\0cronExpressionq\0~\0	L\0invokeTargetq\0~\0	L\0jobGroupq\0~\0	L\0jobIdt\0Ljava/lang/Long;L\0jobNameq\0~\0	L\0\rmisfirePolicyq\0~\0	L\0statusq\0~\0	xr\0\'com.ruoyi.common.core.domain.BaseEntity\0\0\0\0\0\0\0\0L\0createByq\0~\0	L\0\ncreateTimet\0Ljava/util/Date;L\0paramsq\0~\0L\0remarkq\0~\0	L\0searchValueq\0~\0	L\0updateByq\0~\0	L\0\nupdateTimeq\0~\0xpt\0adminsr\0java.util.Datehj�KYt\0\0xpw\0\0b,\�)\�xpt\0\0pppt\01t\00/10 * * * * ?t\0ryTask.ryNoParamst\0DEFAULTsr\0java.lang.Long;�\�̏#\�\0J\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0\0\0\0t\0系统默认（无参）t\03t\01x\0'),('RuoyiScheduler','TASK_CLASS_NAME2','DEFAULT',NULL,'com.ruoyi.quartz.util.QuartzDisallowConcurrentExecution','0','1','0','0','�\�\0sr\0org.quartz.JobDataMap���迩�\�\0\0xr\0&org.quartz.utils.StringKeyDirtyFlagMap�\�\��\�](\0Z\0allowsTransientDataxr\0org.quartz.utils.DirtyFlagMap\�.�(v\n\�\0Z\0dirtyL\0mapt\0Ljava/util/Map;xpsr\0java.util.HashMap\��\�`\�\0F\0\nloadFactorI\0	thresholdxp?@\0\0\0\0\0w\0\0\0\0\0\0t\0TASK_PROPERTIESsr\0com.ruoyi.quartz.domain.SysJob\0\0\0\0\0\0\0\0L\0\nconcurrentt\0Ljava/lang/String;L\0cronExpressionq\0~\0	L\0invokeTargetq\0~\0	L\0jobGroupq\0~\0	L\0jobIdt\0Ljava/lang/Long;L\0jobNameq\0~\0	L\0\rmisfirePolicyq\0~\0	L\0statusq\0~\0	xr\0\'com.ruoyi.common.core.domain.BaseEntity\0\0\0\0\0\0\0\0L\0createByq\0~\0	L\0\ncreateTimet\0Ljava/util/Date;L\0paramsq\0~\0L\0remarkq\0~\0	L\0searchValueq\0~\0	L\0updateByq\0~\0	L\0\nupdateTimeq\0~\0xpt\0adminsr\0java.util.Datehj�KYt\0\0xpw\0\0b,\�)\�xpt\0\0pppt\01t\00/15 * * * * ?t\0ryTask.ryParams(\'ry\')t\0DEFAULTsr\0java.lang.Long;�\�̏#\�\0J\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0\0\0\0t\0系统默认（有参）t\03t\01x\0'),('RuoyiScheduler','TASK_CLASS_NAME3','DEFAULT',NULL,'com.ruoyi.quartz.util.QuartzDisallowConcurrentExecution','0','1','0','0','�\�\0sr\0org.quartz.JobDataMap���迩�\�\0\0xr\0&org.quartz.utils.StringKeyDirtyFlagMap�\�\��\�](\0Z\0allowsTransientDataxr\0org.quartz.utils.DirtyFlagMap\�.�(v\n\�\0Z\0dirtyL\0mapt\0Ljava/util/Map;xpsr\0java.util.HashMap\��\�`\�\0F\0\nloadFactorI\0	thresholdxp?@\0\0\0\0\0w\0\0\0\0\0\0t\0TASK_PROPERTIESsr\0com.ruoyi.quartz.domain.SysJob\0\0\0\0\0\0\0\0L\0\nconcurrentt\0Ljava/lang/String;L\0cronExpressionq\0~\0	L\0invokeTargetq\0~\0	L\0jobGroupq\0~\0	L\0jobIdt\0Ljava/lang/Long;L\0jobNameq\0~\0	L\0\rmisfirePolicyq\0~\0	L\0statusq\0~\0	xr\0\'com.ruoyi.common.core.domain.BaseEntity\0\0\0\0\0\0\0\0L\0createByq\0~\0	L\0\ncreateTimet\0Ljava/util/Date;L\0paramsq\0~\0L\0remarkq\0~\0	L\0searchValueq\0~\0	L\0updateByq\0~\0	L\0\nupdateTimeq\0~\0xpt\0adminsr\0java.util.Datehj�KYt\0\0xpw\0\0b,\�)\�xpt\0\0pppt\01t\00/20 * * * * ?t\08ryTask.ryMultipleParams(\'ry\', true, 2000L, 316.50D, 100)t\0DEFAULTsr\0java.lang.Long;�\�̏#\�\0J\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0\0\0\0t\0系统默认（多参）t\03t\01x\0');
 /*!40000 ALTER TABLE `qrtz_job_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,7 +247,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `qrtz_locks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qrtz_locks` (
   `sched_name` varchar(120) NOT NULL,
   `lock_name` varchar(40) NOT NULL,
@@ -273,7 +271,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `qrtz_paused_trigger_grps`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qrtz_paused_trigger_grps` (
   `sched_name` varchar(120) NOT NULL,
   `trigger_group` varchar(200) NOT NULL,
@@ -296,7 +294,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `qrtz_scheduler_state`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qrtz_scheduler_state` (
   `sched_name` varchar(120) NOT NULL,
   `instance_name` varchar(200) NOT NULL,
@@ -312,7 +310,7 @@ CREATE TABLE `qrtz_scheduler_state` (
 
 LOCK TABLES `qrtz_scheduler_state` WRITE;
 /*!40000 ALTER TABLE `qrtz_scheduler_state` DISABLE KEYS */;
-INSERT INTO `qrtz_scheduler_state` VALUES ('RuoyiScheduler','se08761587626022016',1587627120350,15000);
+INSERT INTO `qrtz_scheduler_state` VALUES ('RuoyiScheduler','MicroWin10-22361587657480680',1587657561278,15000);
 /*!40000 ALTER TABLE `qrtz_scheduler_state` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -322,7 +320,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `qrtz_simple_triggers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qrtz_simple_triggers` (
   `sched_name` varchar(120) NOT NULL,
   `trigger_name` varchar(200) NOT NULL,
@@ -350,7 +348,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `qrtz_simprop_triggers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qrtz_simprop_triggers` (
   `sched_name` varchar(120) NOT NULL,
   `trigger_name` varchar(200) NOT NULL,
@@ -386,7 +384,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `qrtz_triggers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qrtz_triggers` (
   `sched_name` varchar(120) NOT NULL,
   `trigger_name` varchar(200) NOT NULL,
@@ -416,7 +414,7 @@ CREATE TABLE `qrtz_triggers` (
 
 LOCK TABLES `qrtz_triggers` WRITE;
 /*!40000 ALTER TABLE `qrtz_triggers` DISABLE KEYS */;
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler','TASK_CLASS_NAME1','DEFAULT','TASK_CLASS_NAME1','DEFAULT',NULL,1587626030000,-1,5,'PAUSED','CRON',1587626022000,0,NULL,2,''),('RuoyiScheduler','TASK_CLASS_NAME2','DEFAULT','TASK_CLASS_NAME2','DEFAULT',NULL,1587626025000,-1,5,'PAUSED','CRON',1587626022000,0,NULL,2,''),('RuoyiScheduler','TASK_CLASS_NAME3','DEFAULT','TASK_CLASS_NAME3','DEFAULT',NULL,1587626040000,-1,5,'PAUSED','CRON',1587626022000,0,NULL,2,'');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler','TASK_CLASS_NAME1','DEFAULT','TASK_CLASS_NAME1','DEFAULT',NULL,1587657490000,-1,5,'PAUSED','CRON',1587657481000,0,NULL,2,''),('RuoyiScheduler','TASK_CLASS_NAME2','DEFAULT','TASK_CLASS_NAME2','DEFAULT',NULL,1587657495000,-1,5,'PAUSED','CRON',1587657481000,0,NULL,2,''),('RuoyiScheduler','TASK_CLASS_NAME3','DEFAULT','TASK_CLASS_NAME3','DEFAULT',NULL,1587657500000,-1,5,'PAUSED','CRON',1587657481000,0,NULL,2,'');
 /*!40000 ALTER TABLE `qrtz_triggers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -426,7 +424,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_config`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_config` (
   `config_id` int(5) NOT NULL AUTO_INCREMENT COMMENT '参数主键',
   `config_name` varchar(100) DEFAULT '' COMMENT '参数名称',
@@ -458,7 +456,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_dept`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_dept` (
   `dept_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '部门id',
   `parent_id` bigint(20) DEFAULT '0' COMMENT '父部门id',
@@ -494,7 +492,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_dict_data`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_dict_data` (
   `dict_code` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '字典编码',
   `dict_sort` int(4) DEFAULT '0' COMMENT '字典排序',
@@ -530,7 +528,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_dict_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_dict_type` (
   `dict_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '字典主键',
   `dict_name` varchar(100) DEFAULT '' COMMENT '字典名称',
@@ -562,7 +560,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_job`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_job` (
   `job_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '任务ID',
   `job_name` varchar(64) NOT NULL DEFAULT '' COMMENT '任务名称',
@@ -597,7 +595,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_job_log`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_job_log` (
   `job_log_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '任务日志ID',
   `job_name` varchar(64) NOT NULL COMMENT '任务名称',
@@ -626,7 +624,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_logininfor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_logininfor` (
   `info_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '访问ID',
   `login_name` varchar(50) DEFAULT '' COMMENT '登录账号',
@@ -638,7 +636,7 @@ CREATE TABLE `sys_logininfor` (
   `msg` varchar(255) DEFAULT '' COMMENT '提示消息',
   `login_time` datetime DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8 COMMENT='系统访问记录';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -647,7 +645,7 @@ CREATE TABLE `sys_logininfor` (
 
 LOCK TABLES `sys_logininfor` WRITE;
 /*!40000 ALTER TABLE `sys_logininfor` DISABLE KEYS */;
-INSERT INTO `sys_logininfor` VALUES (100,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','登录成功','2020-04-23 10:58:04'),(101,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','登录成功','2020-04-23 11:46:16'),(102,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','登录成功','2020-04-23 11:50:08'),(103,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','退出成功','2020-04-23 11:56:40'),(104,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','登录成功','2020-04-23 11:56:44'),(105,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','登录成功','2020-04-23 14:04:40'),(106,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','退出成功','2020-04-23 14:31:38'),(107,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','登录成功','2020-04-23 14:31:43');
+INSERT INTO `sys_logininfor` VALUES (100,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','登录成功','2020-04-23 10:58:04'),(101,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','登录成功','2020-04-23 11:46:16'),(102,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','登录成功','2020-04-23 11:50:08'),(103,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','退出成功','2020-04-23 11:56:40'),(104,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','登录成功','2020-04-23 11:56:44'),(105,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','登录成功','2020-04-23 14:04:40'),(106,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','退出成功','2020-04-23 14:31:38'),(107,'admin','127.0.0.1','内网IP','Chrome 8','Windows 10','0','登录成功','2020-04-23 14:31:43'),(108,'admin','127.0.0.1','内网IP','Chrome','Windows 10','0','退出成功','2020-04-23 22:24:58'),(109,'admin','127.0.0.1','内网IP','Chrome','Windows 10','0','登录成功','2020-04-23 22:25:03');
 /*!40000 ALTER TABLE `sys_logininfor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -657,7 +655,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_menu`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_menu` (
   `menu_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '菜单ID',
   `menu_name` varchar(50) NOT NULL COMMENT '菜单名称',
@@ -694,7 +692,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_notice`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_notice` (
   `notice_id` int(4) NOT NULL AUTO_INCREMENT COMMENT '公告ID',
   `notice_title` varchar(50) NOT NULL COMMENT '公告标题',
@@ -726,7 +724,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_oper_log`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_oper_log` (
   `oper_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '日志主键',
   `title` varchar(50) DEFAULT '' COMMENT '模块标题',
@@ -745,7 +743,7 @@ CREATE TABLE `sys_oper_log` (
   `error_msg` varchar(2000) DEFAULT '' COMMENT '错误消息',
   `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`oper_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=utf8 COMMENT='操作日志记录';
+) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8 COMMENT='操作日志记录';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -754,7 +752,7 @@ CREATE TABLE `sys_oper_log` (
 
 LOCK TABLES `sys_oper_log` WRITE;
 /*!40000 ALTER TABLE `sys_oper_log` DISABLE KEYS */;
-INSERT INTO `sys_oper_log` VALUES (100,'菜单管理',3,'com.ruoyi.web.controller.system.SysMenuController.remove()','GET',1,'admin','研发部门','/system/menu/remove/2','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"存在子菜单,不允许删除\",\r\n  \"code\" : 301\r\n}',0,NULL,'2020-04-23 11:00:54'),(101,'菜单管理',3,'com.ruoyi.web.controller.system.SysMenuController.remove()','GET',1,'admin','研发部门','/system/menu/remove/112','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"菜单已分配,不允许删除\",\r\n  \"code\" : 301\r\n}',0,NULL,'2020-04-23 11:01:02'),(102,'角色管理',4,'com.ruoyi.web.controller.system.SysRoleController.cancelAuthUser()','POST',1,'admin','研发部门','/system/role/authUser/cancel','127.0.0.1','内网IP','{\r\n  \"roleId\" : [ \"2\" ],\r\n  \"userId\" : [ \"2\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:01:36'),(103,'角色管理',2,'com.ruoyi.web.controller.system.SysRoleController.editSave()','POST',1,'admin','研发部门','/system/role/edit','127.0.0.1','内网IP','{\r\n  \"roleId\" : [ \"2\" ],\r\n  \"roleName\" : [ \"普通角色\" ],\r\n  \"roleKey\" : [ \"common\" ],\r\n  \"roleSort\" : [ \"2\" ],\r\n  \"status\" : [ \"0\" ],\r\n  \"remark\" : [ \"普通角色\" ],\r\n  \"menuIds\" : [ \"\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:01:48'),(104,'菜单管理',3,'com.ruoyi.web.controller.system.SysMenuController.remove()','GET',1,'admin','研发部门','/system/menu/remove/112','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:02:39'),(105,'菜单管理',3,'com.ruoyi.web.controller.system.SysMenuController.remove()','GET',1,'admin','研发部门','/system/menu/remove/111','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:02:44'),(106,'菜单管理',3,'com.ruoyi.web.controller.system.SysMenuController.remove()','GET',1,'admin','研发部门','/system/menu/remove/110','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"存在子菜单,不允许删除\",\r\n  \"code\" : 301\r\n}',0,NULL,'2020-04-23 11:03:01'),(107,'菜单管理',3,'com.ruoyi.web.controller.system.SysMenuController.remove()','GET',1,'admin','研发部门','/system/menu/remove/1050','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:03:07'),(108,'菜单管理',1,'com.ruoyi.web.controller.system.SysMenuController.addSave()','POST',1,'admin','研发部门','/system/menu/add','127.0.0.1','内网IP','{\r\n  \"parentId\" : [ \"0\" ],\r\n  \"menuType\" : [ \"M\" ],\r\n  \"menuName\" : [ \"小程序管理\" ],\r\n  \"url\" : [ \"\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"\" ],\r\n  \"orderNum\" : [ \"2\" ],\r\n  \"icon\" : [ \"fa fa-wrench\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:05:25'),(109,'菜单管理',2,'com.ruoyi.web.controller.system.SysMenuController.editSave()','POST',1,'admin','研发部门','/system/menu/edit','127.0.0.1','内网IP','{\r\n  \"menuId\" : [ \"2\" ],\r\n  \"parentId\" : [ \"0\" ],\r\n  \"menuType\" : [ \"M\" ],\r\n  \"menuName\" : [ \"系统监控\" ],\r\n  \"url\" : [ \"#\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"\" ],\r\n  \"orderNum\" : [ \"4\" ],\r\n  \"icon\" : [ \"fa fa-video-camera\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:05:41'),(110,'菜单管理',1,'com.ruoyi.web.controller.system.SysMenuController.addSave()','POST',1,'admin','研发部门','/system/menu/add','127.0.0.1','内网IP','{\r\n  \"parentId\" : [ \"2000\" ],\r\n  \"menuType\" : [ \"C\" ],\r\n  \"menuName\" : [ \"视频管理\" ],\r\n  \"url\" : [ \"\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"\" ],\r\n  \"orderNum\" : [ \"1\" ],\r\n  \"icon\" : [ \"\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:08:36'),(111,'菜单管理',1,'com.ruoyi.web.controller.system.SysMenuController.addSave()','POST',1,'admin','研发部门','/system/menu/add','127.0.0.1','内网IP','{\r\n  \"parentId\" : [ \"2000\" ],\r\n  \"menuType\" : [ \"C\" ],\r\n  \"menuName\" : [ \"分类管理\" ],\r\n  \"url\" : [ \"\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"\" ],\r\n  \"orderNum\" : [ \"2\" ],\r\n  \"icon\" : [ \"\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:08:48'),(112,'代码生成',6,'com.ruoyi.generator.controller.GenController.importTableSave()','POST',1,'admin','研发部门','/tool/gen/importTable','127.0.0.1','内网IP','{\r\n  \"tables\" : [ \"wx_user\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:26:53'),(113,'代码生成',8,'com.ruoyi.generator.controller.GenController.genCode()','GET',1,'admin','研发部门','/tool/gen/genCode/wx_user','127.0.0.1','内网IP','{ }','null',0,NULL,'2020-04-23 11:27:01'),(114,'代码生成',6,'com.ruoyi.generator.controller.GenController.importTableSave()','POST',1,'admin','研发部门','/tool/gen/importTable','127.0.0.1','内网IP','{\r\n  \"tables\" : [ \"wx_ball_type\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:42:26'),(115,'代码生成',2,'com.ruoyi.generator.controller.GenController.editSave()','POST',1,'admin','研发部门','/tool/gen/edit','127.0.0.1','内网IP','{\r\n  \"tableId\" : [ \"2\" ],\r\n  \"tableName\" : [ \"wx_ball_type\" ],\r\n  \"tableComment\" : [ \"球类\" ],\r\n  \"className\" : [ \"WxBallType\" ],\r\n  \"functionAuthor\" : [ \"ruoyi\" ],\r\n  \"remark\" : [ \"\" ],\r\n  \"columns[0].columnId\" : [ \"7\" ],\r\n  \"columns[0].sort\" : [ \"1\" ],\r\n  \"columns[0].columnComment\" : [ \"id\" ],\r\n  \"columns[0].javaType\" : [ \"Long\" ],\r\n  \"columns[0].javaField\" : [ \"id\" ],\r\n  \"columns[0].isInsert\" : [ \"1\" ],\r\n  \"columns[0].queryType\" : [ \"EQ\" ],\r\n  \"columns[0].htmlType\" : [ \"input\" ],\r\n  \"columns[0].dictType\" : [ \"\" ],\r\n  \"columns[1].columnId\" : [ \"8\" ],\r\n  \"columns[1].sort\" : [ \"2\" ],\r\n  \"columns[1].columnComment\" : [ \"名称\" ],\r\n  \"columns[1].javaType\" : [ \"String\" ],\r\n  \"columns[1].javaField\" : [ \"name\" ],\r\n  \"columns[1].isInsert\" : [ \"1\" ],\r\n  \"columns[1].isEdit\" : [ \"1\" ],\r\n  \"columns[1].isList\" : [ \"1\" ],\r\n  \"columns[1].isQuery\" : [ \"1\" ],\r\n  \"columns[1].queryType\" : [ \"LIKE\" ],\r\n  \"columns[1].htmlType\" : [ \"input\" ],\r\n  \"columns[1].dictType\" : [ \"\" ],\r\n  \"tplCategory\" : [ \"crud\" ],\r\n  \"packageName\" : [ \"com.ruoyi.wx\" ],\r\n  \"moduleName\" : [ \"wx\" ],\r\n  \"businessName\" : [ \"type\" ],\r\n  \"functionName\" : [ \"球类\" ],\r\n  \"params[treeCode]\" : [ \"\" ],\r\n  \"params[treeParentCode]\" : [ \"\" ],\r\n  \"params[treeName]\" : [ \"\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:43:48'),(116,'代码生成',8,'com.ruoyi.generator.controller.GenController.genCode()','GET',1,'admin','研发部门','/tool/gen/genCode/wx_ball_type','127.0.0.1','内网IP','{ }','null',0,NULL,'2020-04-23 11:43:51'),(117,'菜单管理',2,'com.ruoyi.web.controller.system.SysMenuController.editSave()','POST',1,'admin','研发部门','/system/menu/edit','127.0.0.1','内网IP','{\r\n  \"menuId\" : [ \"2002\" ],\r\n  \"parentId\" : [ \"2000\" ],\r\n  \"menuType\" : [ \"C\" ],\r\n  \"menuName\" : [ \"分类管理\" ],\r\n  \"url\" : [ \"/wx/type\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"wx:type:view\" ],\r\n  \"orderNum\" : [ \"2\" ],\r\n  \"icon\" : [ \"#\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:47:53'),(118,'球类',2,'com.ruoyi.web.controller.wx.WxBallTypeController.editSave()','POST',1,'admin','研发部门','/wx/type/edit','127.0.0.1','内网IP','{\r\n  \"id\" : [ \"1\" ],\r\n  \"name\" : [ \"篮球\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:55:33'),(119,'球类',1,'com.ruoyi.web.controller.wx.WxBallTypeController.addSave()','POST',1,'admin','研发部门','/wx/type/add','127.0.0.1','内网IP','{\r\n  \"name\" : [ \"羽毛球\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:55:42'),(120,'代码生成',6,'com.ruoyi.generator.controller.GenController.importTableSave()','POST',1,'admin','研发部门','/tool/gen/importTable','127.0.0.1','内网IP','{\r\n  \"tables\" : [ \"wx_video,wx_feedback,wx_user_game,wx_ball_game\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 13:18:04'),(121,'代码生成',2,'com.ruoyi.generator.controller.GenController.editSave()','POST',1,'admin','研发部门','/tool/gen/edit','127.0.0.1','内网IP','{\r\n  \"tableId\" : [ \"4\" ],\r\n  \"tableName\" : [ \"wx_feedback\" ],\r\n  \"tableComment\" : [ \"用户反馈\" ],\r\n  \"className\" : [ \"WxFeedback\" ],\r\n  \"functionAuthor\" : [ \"ruoyi\" ],\r\n  \"remark\" : [ \"\" ],\r\n  \"columns[0].columnId\" : [ \"22\" ],\r\n  \"columns[0].sort\" : [ \"1\" ],\r\n  \"columns[0].columnComment\" : [ \"反馈Id\" ],\r\n  \"columns[0].javaType\" : [ \"Long\" ],\r\n  \"columns[0].javaField\" : [ \"id\" ],\r\n  \"columns[0].isInsert\" : [ \"1\" ],\r\n  \"columns[0].queryType\" : [ \"EQ\" ],\r\n  \"columns[0].htmlType\" : [ \"input\" ],\r\n  \"columns[0].dictType\" : [ \"\" ],\r\n  \"columns[1].columnId\" : [ \"23\" ],\r\n  \"columns[1].sort\" : [ \"2\" ],\r\n  \"columns[1].columnComment\" : [ \"用户名称\" ],\r\n  \"columns[1].javaType\" : [ \"Long\" ],\r\n  \"columns[1].javaField\" : [ \"name\" ],\r\n  \"columns[1].isInsert\" : [ \"1\" ],\r\n  \"columns[1].isEdit\" : [ \"1\" ],\r\n  \"columns[1].isList\" : [ \"1\" ],\r\n  \"columns[1].isQuery\" : [ \"1\" ],\r\n  \"columns[1].queryType\" : [ \"LIKE\" ],\r\n  \"columns[1].htmlType\" : [ \"input\" ],\r\n  \"columns[1].dictType\" : [ \"\" ],\r\n  \"columns[2].columnId\" : [ \"24\" ],\r\n  \"columns[2].sort\" : [ \"3\" ],\r\n  \"columns[2].columnComment\" : [ \"角色\" ],\r\n  \"columns[2].javaType\" : [ \"String\" ],\r\n  \"columns[2].javaField\" : [ \"role\" ],\r\n  \"columns[2].isInsert\" : [ \"1\" ],\r\n  \"columns[2].isEdit\" : [ \"1\" ],\r\n  \"columns[2].isList\" : [ \"1\" ],\r\n  \"columns[2].isQuery\" : [ \"1\" ],\r\n  \"columns[2].queryType\" : [ \"EQ\" ],\r\n  \"columns[2].htmlType\" : [ \"input\" ],\r\n  \"columns[2].dictType\" : [ \"\" ],\r\n  \"columns[3].columnId\" : [ \"25\" ],\r\n  \"columns[3].sort\" : [ \"4\" ],\r\n  \"columns[3].columnComment\" : [ \"内容\" ],\r\n  \"columns[3].javaType\" : [ \"String\" ],\r\n  \"columns[3].javaField\" : [ \"content\" ],\r\n  \"columns[3].isInsert\" : [ \"1\" ],\r\n  \"columns[3].isEdit\" : [ \"1\" ],\r\n  \"columns[3].isList\" : [ \"1\" ],\r\n  \"columns[3].isQuery\" : [ \"1\" ],\r\n  \"columns[3].queryType\" : [ \"EQ\" ],\r\n  \"columns[3].isRequired\" : [ \"1\" ],\r\n  \"columns[3].htmlType\" : [ \"input\" ],\r\n  \"columns[3].dictType\" : [ \"\" ],\r\n  \"columns[4].columnId\" : [ \"26\" ],\r\n  \"columns[4].sort\" : [ \"5\" ],\r\n  \"columns[4].columnComment\" :','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 13:18:24'),(122,'代码生成',2,'com.ruoyi.generator.controller.GenController.editSave()','POST',1,'admin','研发部门','/tool/gen/edit','127.0.0.1','内网IP','{\r\n  \"tableId\" : [ \"4\" ],\r\n  \"tableName\" : [ \"wx_feedback\" ],\r\n  \"tableComment\" : [ \"用户反馈\" ],\r\n  \"className\" : [ \"WxFeedback\" ],\r\n  \"functionAuthor\" : [ \"ruoyi\" ],\r\n  \"remark\" : [ \"\" ],\r\n  \"columns[0].columnId\" : [ \"22\" ],\r\n  \"columns[0].sort\" : [ \"1\" ],\r\n  \"columns[0].columnComment\" : [ \"反馈Id\" ],\r\n  \"columns[0].javaType\" : [ \"Long\" ],\r\n  \"columns[0].javaField\" : [ \"id\" ],\r\n  \"columns[0].isInsert\" : [ \"1\" ],\r\n  \"columns[0].queryType\" : [ \"EQ\" ],\r\n  \"columns[0].htmlType\" : [ \"input\" ],\r\n  \"columns[0].dictType\" : [ \"\" ],\r\n  \"columns[1].columnId\" : [ \"23\" ],\r\n  \"columns[1].sort\" : [ \"2\" ],\r\n  \"columns[1].columnComment\" : [ \"用户名称\" ],\r\n  \"columns[1].javaType\" : [ \"Long\" ],\r\n  \"columns[1].javaField\" : [ \"name\" ],\r\n  \"columns[1].isInsert\" : [ \"1\" ],\r\n  \"columns[1].isEdit\" : [ \"1\" ],\r\n  \"columns[1].isList\" : [ \"1\" ],\r\n  \"columns[1].isQuery\" : [ \"1\" ],\r\n  \"columns[1].queryType\" : [ \"LIKE\" ],\r\n  \"columns[1].htmlType\" : [ \"input\" ],\r\n  \"columns[1].dictType\" : [ \"\" ],\r\n  \"columns[2].columnId\" : [ \"24\" ],\r\n  \"columns[2].sort\" : [ \"3\" ],\r\n  \"columns[2].columnComment\" : [ \"角色\" ],\r\n  \"columns[2].javaType\" : [ \"String\" ],\r\n  \"columns[2].javaField\" : [ \"role\" ],\r\n  \"columns[2].isInsert\" : [ \"1\" ],\r\n  \"columns[2].isEdit\" : [ \"1\" ],\r\n  \"columns[2].isList\" : [ \"1\" ],\r\n  \"columns[2].isQuery\" : [ \"1\" ],\r\n  \"columns[2].queryType\" : [ \"EQ\" ],\r\n  \"columns[2].htmlType\" : [ \"input\" ],\r\n  \"columns[2].dictType\" : [ \"\" ],\r\n  \"columns[3].columnId\" : [ \"25\" ],\r\n  \"columns[3].sort\" : [ \"4\" ],\r\n  \"columns[3].columnComment\" : [ \"内容\" ],\r\n  \"columns[3].javaType\" : [ \"String\" ],\r\n  \"columns[3].javaField\" : [ \"content\" ],\r\n  \"columns[3].isInsert\" : [ \"1\" ],\r\n  \"columns[3].isEdit\" : [ \"1\" ],\r\n  \"columns[3].isList\" : [ \"1\" ],\r\n  \"columns[3].isQuery\" : [ \"1\" ],\r\n  \"columns[3].queryType\" : [ \"EQ\" ],\r\n  \"columns[3].isRequired\" : [ \"1\" ],\r\n  \"columns[3].htmlType\" : [ \"input\" ],\r\n  \"columns[3].dictType\" : [ \"\" ],\r\n  \"columns[4].columnId\" : [ \"26\" ],\r\n  \"columns[4].sort\" : [ \"5\" ],\r\n  \"columns[4].columnComment\" :','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 13:18:40'),(123,'代码生成',8,'com.ruoyi.generator.controller.GenController.genCode()','GET',1,'admin','研发部门','/tool/gen/genCode/wx_feedback','127.0.0.1','内网IP','{ }','null',0,NULL,'2020-04-23 13:18:42'),(124,'菜单管理',1,'com.ruoyi.web.controller.system.SysMenuController.addSave()','POST',1,'admin','研发部门','/system/menu/add','127.0.0.1','内网IP','{\r\n  \"parentId\" : [ \"2000\" ],\r\n  \"menuType\" : [ \"C\" ],\r\n  \"menuName\" : [ \"反馈管理\" ],\r\n  \"url\" : [ \"/wx/feedback\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"wx:feedback:view\" ],\r\n  \"orderNum\" : [ \"3\" ],\r\n  \"icon\" : [ \"\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 13:28:26'),(125,'代码生成',2,'com.ruoyi.generator.controller.GenController.editSave()','POST',1,'admin','研发部门','/tool/gen/edit','127.0.0.1','内网IP','{\r\n  \"tableId\" : [ \"6\" ],\r\n  \"tableName\" : [ \"wx_video\" ],\r\n  \"tableComment\" : [ \"视频\" ],\r\n  \"className\" : [ \"WxVideo\" ],\r\n  \"functionAuthor\" : [ \"ruoyi\" ],\r\n  \"remark\" : [ \"\" ],\r\n  \"columns[0].columnId\" : [ \"32\" ],\r\n  \"columns[0].sort\" : [ \"1\" ],\r\n  \"columns[0].columnComment\" : [ \"视频Id\" ],\r\n  \"columns[0].javaType\" : [ \"Long\" ],\r\n  \"columns[0].javaField\" : [ \"id\" ],\r\n  \"columns[0].isInsert\" : [ \"1\" ],\r\n  \"columns[0].queryType\" : [ \"EQ\" ],\r\n  \"columns[0].htmlType\" : [ \"input\" ],\r\n  \"columns[0].dictType\" : [ \"\" ],\r\n  \"columns[1].columnId\" : [ \"33\" ],\r\n  \"columns[1].sort\" : [ \"2\" ],\r\n  \"columns[1].columnComment\" : [ \"用户Id\" ],\r\n  \"columns[1].javaType\" : [ \"Long\" ],\r\n  \"columns[1].javaField\" : [ \"uId\" ],\r\n  \"columns[1].isInsert\" : [ \"1\" ],\r\n  \"columns[1].isEdit\" : [ \"1\" ],\r\n  \"columns[1].isList\" : [ \"1\" ],\r\n  \"columns[1].isQuery\" : [ \"1\" ],\r\n  \"columns[1].queryType\" : [ \"EQ\" ],\r\n  \"columns[1].isRequired\" : [ \"1\" ],\r\n  \"columns[1].htmlType\" : [ \"input\" ],\r\n  \"columns[1].dictType\" : [ \"\" ],\r\n  \"columns[2].columnId\" : [ \"34\" ],\r\n  \"columns[2].sort\" : [ \"3\" ],\r\n  \"columns[2].columnComment\" : [ \"标题\" ],\r\n  \"columns[2].javaType\" : [ \"String\" ],\r\n  \"columns[2].javaField\" : [ \"title\" ],\r\n  \"columns[2].isInsert\" : [ \"1\" ],\r\n  \"columns[2].isEdit\" : [ \"1\" ],\r\n  \"columns[2].isList\" : [ \"1\" ],\r\n  \"columns[2].isQuery\" : [ \"1\" ],\r\n  \"columns[2].queryType\" : [ \"EQ\" ],\r\n  \"columns[2].isRequired\" : [ \"1\" ],\r\n  \"columns[2].htmlType\" : [ \"input\" ],\r\n  \"columns[2].dictType\" : [ \"\" ],\r\n  \"columns[3].columnId\" : [ \"35\" ],\r\n  \"columns[3].sort\" : [ \"4\" ],\r\n  \"columns[3].columnComment\" : [ \"类型\" ],\r\n  \"columns[3].javaType\" : [ \"Long\" ],\r\n  \"columns[3].javaField\" : [ \"type\" ],\r\n  \"columns[3].isInsert\" : [ \"1\" ],\r\n  \"columns[3].isEdit\" : [ \"1\" ],\r\n  \"columns[3].isList\" : [ \"1\" ],\r\n  \"columns[3].isQuery\" : [ \"1\" ],\r\n  \"columns[3].queryType\" : [ \"EQ\" ],\r\n  \"columns[3].htmlType\" : [ \"select\" ],\r\n  \"columns[3].dictType\" : [ \"\" ],\r\n  \"columns[4].columnId\" : [ \"36\" ],\r\n  \"columns[4].sort\" : [ \"5\" ],\r\n  \"col','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 13:54:44'),(126,'代码生成',8,'com.ruoyi.generator.controller.GenController.genCode()','GET',1,'admin','研发部门','/tool/gen/genCode/wx_video','127.0.0.1','内网IP','{ }','null',0,NULL,'2020-04-23 13:54:52'),(127,'菜单管理',2,'com.ruoyi.web.controller.system.SysMenuController.editSave()','POST',1,'admin','研发部门','/system/menu/edit','127.0.0.1','内网IP','{\r\n  \"menuId\" : [ \"2001\" ],\r\n  \"parentId\" : [ \"2000\" ],\r\n  \"menuType\" : [ \"C\" ],\r\n  \"menuName\" : [ \"视频管理\" ],\r\n  \"url\" : [ \"/wx/video\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"wx:video:view\" ],\r\n  \"orderNum\" : [ \"1\" ],\r\n  \"icon\" : [ \"#\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 13:58:18'),(128,'视频',1,'com.ruoyi.wx.controller.WxVideoController.addSave()','POST',1,'admin','研发部门','/wx/video/add','127.0.0.1','内网IP','{\r\n  \"uId\" : [ \"1\" ],\r\n  \"title\" : [ \"231\" ],\r\n  \"type\" : [ \"\" ],\r\n  \"summary\" : [ \"123\" ],\r\n  \"url\" : [ \"111\" ],\r\n  \"status\" : [ \"\" ],\r\n  \"creatTime\" : [ \"2020-04-01\" ]\r\n}','null',1,'\r\n### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`ry`.`wx_video`, CONSTRAINT `fk_video_user` FOREIGN KEY (`u_id`) REFERENCES `wx_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)\r\n### The error may involve com.ruoyi.wx.mapper.WxVideoMapper.insertWxVideo-Inline\r\n### The error occurred while setting parameters\r\n### SQL: insert into wx_video          ( u_id,             title,                          summary,             url,                          creat_time )           values ( ?,             ?,                          ?,             ?,                          ? )\r\n### Cause: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`ry`.`wx_video`, CONSTRAINT `fk_video_user` FOREIGN KEY (`u_id`) REFERENCES `wx_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)\n; Cannot add or update a child row: a foreign key constraint fails (`ry`.`wx_video`, CONSTRAINT `fk_video_user` FOREIGN KEY (`u_id`) REFERENCES `wx_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION); nested exception is java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`ry`.`wx_video`, CONSTRAINT `fk_video_user` FOREIGN KEY (`u_id`) REFERENCES `wx_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)','2020-04-23 14:43:34'),(129,'视频',1,'com.ruoyi.wx.controller.WxVideoController.addSave()','POST',1,'admin','研发部门','/wx/video/add','127.0.0.1','内网IP','{\r\n  \"uId\" : [ \"1\" ],\r\n  \"title\" : [ \"231\" ],\r\n  \"type\" : [ \"\" ],\r\n  \"summary\" : [ \"123\" ],\r\n  \"url\" : [ \"111\" ],\r\n  \"status\" : [ \"\" ],\r\n  \"creatTime\" : [ \"2020-04-01\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 14:44:12'),(130,'球类',1,'com.ruoyi.wx.controller.WxBallTypeController.addSave()','POST',1,'admin','研发部门','/wx/type/add','127.0.0.1','内网IP','{\r\n  \"name\" : [ \"排球\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 15:24:02');
+INSERT INTO `sys_oper_log` VALUES (100,'菜单管理',3,'com.ruoyi.web.controller.system.SysMenuController.remove()','GET',1,'admin','研发部门','/system/menu/remove/2','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"存在子菜单,不允许删除\",\r\n  \"code\" : 301\r\n}',0,NULL,'2020-04-23 11:00:54'),(101,'菜单管理',3,'com.ruoyi.web.controller.system.SysMenuController.remove()','GET',1,'admin','研发部门','/system/menu/remove/112','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"菜单已分配,不允许删除\",\r\n  \"code\" : 301\r\n}',0,NULL,'2020-04-23 11:01:02'),(102,'角色管理',4,'com.ruoyi.web.controller.system.SysRoleController.cancelAuthUser()','POST',1,'admin','研发部门','/system/role/authUser/cancel','127.0.0.1','内网IP','{\r\n  \"roleId\" : [ \"2\" ],\r\n  \"userId\" : [ \"2\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:01:36'),(103,'角色管理',2,'com.ruoyi.web.controller.system.SysRoleController.editSave()','POST',1,'admin','研发部门','/system/role/edit','127.0.0.1','内网IP','{\r\n  \"roleId\" : [ \"2\" ],\r\n  \"roleName\" : [ \"普通角色\" ],\r\n  \"roleKey\" : [ \"common\" ],\r\n  \"roleSort\" : [ \"2\" ],\r\n  \"status\" : [ \"0\" ],\r\n  \"remark\" : [ \"普通角色\" ],\r\n  \"menuIds\" : [ \"\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:01:48'),(104,'菜单管理',3,'com.ruoyi.web.controller.system.SysMenuController.remove()','GET',1,'admin','研发部门','/system/menu/remove/112','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:02:39'),(105,'菜单管理',3,'com.ruoyi.web.controller.system.SysMenuController.remove()','GET',1,'admin','研发部门','/system/menu/remove/111','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:02:44'),(106,'菜单管理',3,'com.ruoyi.web.controller.system.SysMenuController.remove()','GET',1,'admin','研发部门','/system/menu/remove/110','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"存在子菜单,不允许删除\",\r\n  \"code\" : 301\r\n}',0,NULL,'2020-04-23 11:03:01'),(107,'菜单管理',3,'com.ruoyi.web.controller.system.SysMenuController.remove()','GET',1,'admin','研发部门','/system/menu/remove/1050','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:03:07'),(108,'菜单管理',1,'com.ruoyi.web.controller.system.SysMenuController.addSave()','POST',1,'admin','研发部门','/system/menu/add','127.0.0.1','内网IP','{\r\n  \"parentId\" : [ \"0\" ],\r\n  \"menuType\" : [ \"M\" ],\r\n  \"menuName\" : [ \"小程序管理\" ],\r\n  \"url\" : [ \"\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"\" ],\r\n  \"orderNum\" : [ \"2\" ],\r\n  \"icon\" : [ \"fa fa-wrench\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:05:25'),(109,'菜单管理',2,'com.ruoyi.web.controller.system.SysMenuController.editSave()','POST',1,'admin','研发部门','/system/menu/edit','127.0.0.1','内网IP','{\r\n  \"menuId\" : [ \"2\" ],\r\n  \"parentId\" : [ \"0\" ],\r\n  \"menuType\" : [ \"M\" ],\r\n  \"menuName\" : [ \"系统监控\" ],\r\n  \"url\" : [ \"#\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"\" ],\r\n  \"orderNum\" : [ \"4\" ],\r\n  \"icon\" : [ \"fa fa-video-camera\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:05:41'),(110,'菜单管理',1,'com.ruoyi.web.controller.system.SysMenuController.addSave()','POST',1,'admin','研发部门','/system/menu/add','127.0.0.1','内网IP','{\r\n  \"parentId\" : [ \"2000\" ],\r\n  \"menuType\" : [ \"C\" ],\r\n  \"menuName\" : [ \"视频管理\" ],\r\n  \"url\" : [ \"\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"\" ],\r\n  \"orderNum\" : [ \"1\" ],\r\n  \"icon\" : [ \"\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:08:36'),(111,'菜单管理',1,'com.ruoyi.web.controller.system.SysMenuController.addSave()','POST',1,'admin','研发部门','/system/menu/add','127.0.0.1','内网IP','{\r\n  \"parentId\" : [ \"2000\" ],\r\n  \"menuType\" : [ \"C\" ],\r\n  \"menuName\" : [ \"分类管理\" ],\r\n  \"url\" : [ \"\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"\" ],\r\n  \"orderNum\" : [ \"2\" ],\r\n  \"icon\" : [ \"\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:08:48'),(112,'代码生成',6,'com.ruoyi.generator.controller.GenController.importTableSave()','POST',1,'admin','研发部门','/tool/gen/importTable','127.0.0.1','内网IP','{\r\n  \"tables\" : [ \"wx_user\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:26:53'),(113,'代码生成',8,'com.ruoyi.generator.controller.GenController.genCode()','GET',1,'admin','研发部门','/tool/gen/genCode/wx_user','127.0.0.1','内网IP','{ }','null',0,NULL,'2020-04-23 11:27:01'),(114,'代码生成',6,'com.ruoyi.generator.controller.GenController.importTableSave()','POST',1,'admin','研发部门','/tool/gen/importTable','127.0.0.1','内网IP','{\r\n  \"tables\" : [ \"wx_ball_type\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:42:26'),(115,'代码生成',2,'com.ruoyi.generator.controller.GenController.editSave()','POST',1,'admin','研发部门','/tool/gen/edit','127.0.0.1','内网IP','{\r\n  \"tableId\" : [ \"2\" ],\r\n  \"tableName\" : [ \"wx_ball_type\" ],\r\n  \"tableComment\" : [ \"球类\" ],\r\n  \"className\" : [ \"WxBallType\" ],\r\n  \"functionAuthor\" : [ \"ruoyi\" ],\r\n  \"remark\" : [ \"\" ],\r\n  \"columns[0].columnId\" : [ \"7\" ],\r\n  \"columns[0].sort\" : [ \"1\" ],\r\n  \"columns[0].columnComment\" : [ \"id\" ],\r\n  \"columns[0].javaType\" : [ \"Long\" ],\r\n  \"columns[0].javaField\" : [ \"id\" ],\r\n  \"columns[0].isInsert\" : [ \"1\" ],\r\n  \"columns[0].queryType\" : [ \"EQ\" ],\r\n  \"columns[0].htmlType\" : [ \"input\" ],\r\n  \"columns[0].dictType\" : [ \"\" ],\r\n  \"columns[1].columnId\" : [ \"8\" ],\r\n  \"columns[1].sort\" : [ \"2\" ],\r\n  \"columns[1].columnComment\" : [ \"名称\" ],\r\n  \"columns[1].javaType\" : [ \"String\" ],\r\n  \"columns[1].javaField\" : [ \"name\" ],\r\n  \"columns[1].isInsert\" : [ \"1\" ],\r\n  \"columns[1].isEdit\" : [ \"1\" ],\r\n  \"columns[1].isList\" : [ \"1\" ],\r\n  \"columns[1].isQuery\" : [ \"1\" ],\r\n  \"columns[1].queryType\" : [ \"LIKE\" ],\r\n  \"columns[1].htmlType\" : [ \"input\" ],\r\n  \"columns[1].dictType\" : [ \"\" ],\r\n  \"tplCategory\" : [ \"crud\" ],\r\n  \"packageName\" : [ \"com.ruoyi.wx\" ],\r\n  \"moduleName\" : [ \"wx\" ],\r\n  \"businessName\" : [ \"type\" ],\r\n  \"functionName\" : [ \"球类\" ],\r\n  \"params[treeCode]\" : [ \"\" ],\r\n  \"params[treeParentCode]\" : [ \"\" ],\r\n  \"params[treeName]\" : [ \"\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:43:48'),(116,'代码生成',8,'com.ruoyi.generator.controller.GenController.genCode()','GET',1,'admin','研发部门','/tool/gen/genCode/wx_ball_type','127.0.0.1','内网IP','{ }','null',0,NULL,'2020-04-23 11:43:51'),(117,'菜单管理',2,'com.ruoyi.web.controller.system.SysMenuController.editSave()','POST',1,'admin','研发部门','/system/menu/edit','127.0.0.1','内网IP','{\r\n  \"menuId\" : [ \"2002\" ],\r\n  \"parentId\" : [ \"2000\" ],\r\n  \"menuType\" : [ \"C\" ],\r\n  \"menuName\" : [ \"分类管理\" ],\r\n  \"url\" : [ \"/wx/type\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"wx:type:view\" ],\r\n  \"orderNum\" : [ \"2\" ],\r\n  \"icon\" : [ \"#\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:47:53'),(118,'球类',2,'com.ruoyi.web.controller.wx.WxBallTypeController.editSave()','POST',1,'admin','研发部门','/wx/type/edit','127.0.0.1','内网IP','{\r\n  \"id\" : [ \"1\" ],\r\n  \"name\" : [ \"篮球\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:55:33'),(119,'球类',1,'com.ruoyi.web.controller.wx.WxBallTypeController.addSave()','POST',1,'admin','研发部门','/wx/type/add','127.0.0.1','内网IP','{\r\n  \"name\" : [ \"羽毛球\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 11:55:42'),(120,'代码生成',6,'com.ruoyi.generator.controller.GenController.importTableSave()','POST',1,'admin','研发部门','/tool/gen/importTable','127.0.0.1','内网IP','{\r\n  \"tables\" : [ \"wx_video,wx_feedback,wx_user_game,wx_ball_game\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 13:18:04'),(121,'代码生成',2,'com.ruoyi.generator.controller.GenController.editSave()','POST',1,'admin','研发部门','/tool/gen/edit','127.0.0.1','内网IP','{\r\n  \"tableId\" : [ \"4\" ],\r\n  \"tableName\" : [ \"wx_feedback\" ],\r\n  \"tableComment\" : [ \"用户反馈\" ],\r\n  \"className\" : [ \"WxFeedback\" ],\r\n  \"functionAuthor\" : [ \"ruoyi\" ],\r\n  \"remark\" : [ \"\" ],\r\n  \"columns[0].columnId\" : [ \"22\" ],\r\n  \"columns[0].sort\" : [ \"1\" ],\r\n  \"columns[0].columnComment\" : [ \"反馈Id\" ],\r\n  \"columns[0].javaType\" : [ \"Long\" ],\r\n  \"columns[0].javaField\" : [ \"id\" ],\r\n  \"columns[0].isInsert\" : [ \"1\" ],\r\n  \"columns[0].queryType\" : [ \"EQ\" ],\r\n  \"columns[0].htmlType\" : [ \"input\" ],\r\n  \"columns[0].dictType\" : [ \"\" ],\r\n  \"columns[1].columnId\" : [ \"23\" ],\r\n  \"columns[1].sort\" : [ \"2\" ],\r\n  \"columns[1].columnComment\" : [ \"用户名称\" ],\r\n  \"columns[1].javaType\" : [ \"Long\" ],\r\n  \"columns[1].javaField\" : [ \"name\" ],\r\n  \"columns[1].isInsert\" : [ \"1\" ],\r\n  \"columns[1].isEdit\" : [ \"1\" ],\r\n  \"columns[1].isList\" : [ \"1\" ],\r\n  \"columns[1].isQuery\" : [ \"1\" ],\r\n  \"columns[1].queryType\" : [ \"LIKE\" ],\r\n  \"columns[1].htmlType\" : [ \"input\" ],\r\n  \"columns[1].dictType\" : [ \"\" ],\r\n  \"columns[2].columnId\" : [ \"24\" ],\r\n  \"columns[2].sort\" : [ \"3\" ],\r\n  \"columns[2].columnComment\" : [ \"角色\" ],\r\n  \"columns[2].javaType\" : [ \"String\" ],\r\n  \"columns[2].javaField\" : [ \"role\" ],\r\n  \"columns[2].isInsert\" : [ \"1\" ],\r\n  \"columns[2].isEdit\" : [ \"1\" ],\r\n  \"columns[2].isList\" : [ \"1\" ],\r\n  \"columns[2].isQuery\" : [ \"1\" ],\r\n  \"columns[2].queryType\" : [ \"EQ\" ],\r\n  \"columns[2].htmlType\" : [ \"input\" ],\r\n  \"columns[2].dictType\" : [ \"\" ],\r\n  \"columns[3].columnId\" : [ \"25\" ],\r\n  \"columns[3].sort\" : [ \"4\" ],\r\n  \"columns[3].columnComment\" : [ \"内容\" ],\r\n  \"columns[3].javaType\" : [ \"String\" ],\r\n  \"columns[3].javaField\" : [ \"content\" ],\r\n  \"columns[3].isInsert\" : [ \"1\" ],\r\n  \"columns[3].isEdit\" : [ \"1\" ],\r\n  \"columns[3].isList\" : [ \"1\" ],\r\n  \"columns[3].isQuery\" : [ \"1\" ],\r\n  \"columns[3].queryType\" : [ \"EQ\" ],\r\n  \"columns[3].isRequired\" : [ \"1\" ],\r\n  \"columns[3].htmlType\" : [ \"input\" ],\r\n  \"columns[3].dictType\" : [ \"\" ],\r\n  \"columns[4].columnId\" : [ \"26\" ],\r\n  \"columns[4].sort\" : [ \"5\" ],\r\n  \"columns[4].columnComment\" :','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 13:18:24'),(122,'代码生成',2,'com.ruoyi.generator.controller.GenController.editSave()','POST',1,'admin','研发部门','/tool/gen/edit','127.0.0.1','内网IP','{\r\n  \"tableId\" : [ \"4\" ],\r\n  \"tableName\" : [ \"wx_feedback\" ],\r\n  \"tableComment\" : [ \"用户反馈\" ],\r\n  \"className\" : [ \"WxFeedback\" ],\r\n  \"functionAuthor\" : [ \"ruoyi\" ],\r\n  \"remark\" : [ \"\" ],\r\n  \"columns[0].columnId\" : [ \"22\" ],\r\n  \"columns[0].sort\" : [ \"1\" ],\r\n  \"columns[0].columnComment\" : [ \"反馈Id\" ],\r\n  \"columns[0].javaType\" : [ \"Long\" ],\r\n  \"columns[0].javaField\" : [ \"id\" ],\r\n  \"columns[0].isInsert\" : [ \"1\" ],\r\n  \"columns[0].queryType\" : [ \"EQ\" ],\r\n  \"columns[0].htmlType\" : [ \"input\" ],\r\n  \"columns[0].dictType\" : [ \"\" ],\r\n  \"columns[1].columnId\" : [ \"23\" ],\r\n  \"columns[1].sort\" : [ \"2\" ],\r\n  \"columns[1].columnComment\" : [ \"用户名称\" ],\r\n  \"columns[1].javaType\" : [ \"Long\" ],\r\n  \"columns[1].javaField\" : [ \"name\" ],\r\n  \"columns[1].isInsert\" : [ \"1\" ],\r\n  \"columns[1].isEdit\" : [ \"1\" ],\r\n  \"columns[1].isList\" : [ \"1\" ],\r\n  \"columns[1].isQuery\" : [ \"1\" ],\r\n  \"columns[1].queryType\" : [ \"LIKE\" ],\r\n  \"columns[1].htmlType\" : [ \"input\" ],\r\n  \"columns[1].dictType\" : [ \"\" ],\r\n  \"columns[2].columnId\" : [ \"24\" ],\r\n  \"columns[2].sort\" : [ \"3\" ],\r\n  \"columns[2].columnComment\" : [ \"角色\" ],\r\n  \"columns[2].javaType\" : [ \"String\" ],\r\n  \"columns[2].javaField\" : [ \"role\" ],\r\n  \"columns[2].isInsert\" : [ \"1\" ],\r\n  \"columns[2].isEdit\" : [ \"1\" ],\r\n  \"columns[2].isList\" : [ \"1\" ],\r\n  \"columns[2].isQuery\" : [ \"1\" ],\r\n  \"columns[2].queryType\" : [ \"EQ\" ],\r\n  \"columns[2].htmlType\" : [ \"input\" ],\r\n  \"columns[2].dictType\" : [ \"\" ],\r\n  \"columns[3].columnId\" : [ \"25\" ],\r\n  \"columns[3].sort\" : [ \"4\" ],\r\n  \"columns[3].columnComment\" : [ \"内容\" ],\r\n  \"columns[3].javaType\" : [ \"String\" ],\r\n  \"columns[3].javaField\" : [ \"content\" ],\r\n  \"columns[3].isInsert\" : [ \"1\" ],\r\n  \"columns[3].isEdit\" : [ \"1\" ],\r\n  \"columns[3].isList\" : [ \"1\" ],\r\n  \"columns[3].isQuery\" : [ \"1\" ],\r\n  \"columns[3].queryType\" : [ \"EQ\" ],\r\n  \"columns[3].isRequired\" : [ \"1\" ],\r\n  \"columns[3].htmlType\" : [ \"input\" ],\r\n  \"columns[3].dictType\" : [ \"\" ],\r\n  \"columns[4].columnId\" : [ \"26\" ],\r\n  \"columns[4].sort\" : [ \"5\" ],\r\n  \"columns[4].columnComment\" :','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 13:18:40'),(123,'代码生成',8,'com.ruoyi.generator.controller.GenController.genCode()','GET',1,'admin','研发部门','/tool/gen/genCode/wx_feedback','127.0.0.1','内网IP','{ }','null',0,NULL,'2020-04-23 13:18:42'),(124,'菜单管理',1,'com.ruoyi.web.controller.system.SysMenuController.addSave()','POST',1,'admin','研发部门','/system/menu/add','127.0.0.1','内网IP','{\r\n  \"parentId\" : [ \"2000\" ],\r\n  \"menuType\" : [ \"C\" ],\r\n  \"menuName\" : [ \"反馈管理\" ],\r\n  \"url\" : [ \"/wx/feedback\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"wx:feedback:view\" ],\r\n  \"orderNum\" : [ \"3\" ],\r\n  \"icon\" : [ \"\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 13:28:26'),(125,'代码生成',2,'com.ruoyi.generator.controller.GenController.editSave()','POST',1,'admin','研发部门','/tool/gen/edit','127.0.0.1','内网IP','{\r\n  \"tableId\" : [ \"6\" ],\r\n  \"tableName\" : [ \"wx_video\" ],\r\n  \"tableComment\" : [ \"视频\" ],\r\n  \"className\" : [ \"WxVideo\" ],\r\n  \"functionAuthor\" : [ \"ruoyi\" ],\r\n  \"remark\" : [ \"\" ],\r\n  \"columns[0].columnId\" : [ \"32\" ],\r\n  \"columns[0].sort\" : [ \"1\" ],\r\n  \"columns[0].columnComment\" : [ \"视频Id\" ],\r\n  \"columns[0].javaType\" : [ \"Long\" ],\r\n  \"columns[0].javaField\" : [ \"id\" ],\r\n  \"columns[0].isInsert\" : [ \"1\" ],\r\n  \"columns[0].queryType\" : [ \"EQ\" ],\r\n  \"columns[0].htmlType\" : [ \"input\" ],\r\n  \"columns[0].dictType\" : [ \"\" ],\r\n  \"columns[1].columnId\" : [ \"33\" ],\r\n  \"columns[1].sort\" : [ \"2\" ],\r\n  \"columns[1].columnComment\" : [ \"用户Id\" ],\r\n  \"columns[1].javaType\" : [ \"Long\" ],\r\n  \"columns[1].javaField\" : [ \"uId\" ],\r\n  \"columns[1].isInsert\" : [ \"1\" ],\r\n  \"columns[1].isEdit\" : [ \"1\" ],\r\n  \"columns[1].isList\" : [ \"1\" ],\r\n  \"columns[1].isQuery\" : [ \"1\" ],\r\n  \"columns[1].queryType\" : [ \"EQ\" ],\r\n  \"columns[1].isRequired\" : [ \"1\" ],\r\n  \"columns[1].htmlType\" : [ \"input\" ],\r\n  \"columns[1].dictType\" : [ \"\" ],\r\n  \"columns[2].columnId\" : [ \"34\" ],\r\n  \"columns[2].sort\" : [ \"3\" ],\r\n  \"columns[2].columnComment\" : [ \"标题\" ],\r\n  \"columns[2].javaType\" : [ \"String\" ],\r\n  \"columns[2].javaField\" : [ \"title\" ],\r\n  \"columns[2].isInsert\" : [ \"1\" ],\r\n  \"columns[2].isEdit\" : [ \"1\" ],\r\n  \"columns[2].isList\" : [ \"1\" ],\r\n  \"columns[2].isQuery\" : [ \"1\" ],\r\n  \"columns[2].queryType\" : [ \"EQ\" ],\r\n  \"columns[2].isRequired\" : [ \"1\" ],\r\n  \"columns[2].htmlType\" : [ \"input\" ],\r\n  \"columns[2].dictType\" : [ \"\" ],\r\n  \"columns[3].columnId\" : [ \"35\" ],\r\n  \"columns[3].sort\" : [ \"4\" ],\r\n  \"columns[3].columnComment\" : [ \"类型\" ],\r\n  \"columns[3].javaType\" : [ \"Long\" ],\r\n  \"columns[3].javaField\" : [ \"type\" ],\r\n  \"columns[3].isInsert\" : [ \"1\" ],\r\n  \"columns[3].isEdit\" : [ \"1\" ],\r\n  \"columns[3].isList\" : [ \"1\" ],\r\n  \"columns[3].isQuery\" : [ \"1\" ],\r\n  \"columns[3].queryType\" : [ \"EQ\" ],\r\n  \"columns[3].htmlType\" : [ \"select\" ],\r\n  \"columns[3].dictType\" : [ \"\" ],\r\n  \"columns[4].columnId\" : [ \"36\" ],\r\n  \"columns[4].sort\" : [ \"5\" ],\r\n  \"col','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 13:54:44'),(126,'代码生成',8,'com.ruoyi.generator.controller.GenController.genCode()','GET',1,'admin','研发部门','/tool/gen/genCode/wx_video','127.0.0.1','内网IP','{ }','null',0,NULL,'2020-04-23 13:54:52'),(127,'菜单管理',2,'com.ruoyi.web.controller.system.SysMenuController.editSave()','POST',1,'admin','研发部门','/system/menu/edit','127.0.0.1','内网IP','{\r\n  \"menuId\" : [ \"2001\" ],\r\n  \"parentId\" : [ \"2000\" ],\r\n  \"menuType\" : [ \"C\" ],\r\n  \"menuName\" : [ \"视频管理\" ],\r\n  \"url\" : [ \"/wx/video\" ],\r\n  \"target\" : [ \"menuItem\" ],\r\n  \"perms\" : [ \"wx:video:view\" ],\r\n  \"orderNum\" : [ \"1\" ],\r\n  \"icon\" : [ \"#\" ],\r\n  \"visible\" : [ \"0\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 13:58:18'),(128,'视频',1,'com.ruoyi.wx.controller.WxVideoController.addSave()','POST',1,'admin','研发部门','/wx/video/add','127.0.0.1','内网IP','{\r\n  \"uId\" : [ \"1\" ],\r\n  \"title\" : [ \"231\" ],\r\n  \"type\" : [ \"\" ],\r\n  \"summary\" : [ \"123\" ],\r\n  \"url\" : [ \"111\" ],\r\n  \"status\" : [ \"\" ],\r\n  \"creatTime\" : [ \"2020-04-01\" ]\r\n}','null',1,'\r\n### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`ry`.`wx_video`, CONSTRAINT `fk_video_user` FOREIGN KEY (`u_id`) REFERENCES `wx_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)\r\n### The error may involve com.ruoyi.wx.mapper.WxVideoMapper.insertWxVideo-Inline\r\n### The error occurred while setting parameters\r\n### SQL: insert into wx_video          ( u_id,             title,                          summary,             url,                          creat_time )           values ( ?,             ?,                          ?,             ?,                          ? )\r\n### Cause: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`ry`.`wx_video`, CONSTRAINT `fk_video_user` FOREIGN KEY (`u_id`) REFERENCES `wx_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)\n; Cannot add or update a child row: a foreign key constraint fails (`ry`.`wx_video`, CONSTRAINT `fk_video_user` FOREIGN KEY (`u_id`) REFERENCES `wx_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION); nested exception is java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`ry`.`wx_video`, CONSTRAINT `fk_video_user` FOREIGN KEY (`u_id`) REFERENCES `wx_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)','2020-04-23 14:43:34'),(129,'视频',1,'com.ruoyi.wx.controller.WxVideoController.addSave()','POST',1,'admin','研发部门','/wx/video/add','127.0.0.1','内网IP','{\r\n  \"uId\" : [ \"1\" ],\r\n  \"title\" : [ \"231\" ],\r\n  \"type\" : [ \"\" ],\r\n  \"summary\" : [ \"123\" ],\r\n  \"url\" : [ \"111\" ],\r\n  \"status\" : [ \"\" ],\r\n  \"creatTime\" : [ \"2020-04-01\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 14:44:12'),(130,'球类',1,'com.ruoyi.wx.controller.WxBallTypeController.addSave()','POST',1,'admin','研发部门','/wx/type/add','127.0.0.1','内网IP','{\r\n  \"name\" : [ \"排球\" ]\r\n}','{\r\n  \"msg\" : \"操作成功\",\r\n  \"code\" : 0\r\n}',0,NULL,'2020-04-23 15:24:02'),(131,'小程序用户',1,'com.ruoyi.wx.controller.WxUserController.addSave()','POST',1,NULL,NULL,'//wx/user/add','127.0.0.1','内网IP','{ }','null',1,'','2020-04-23 23:44:27'),(132,'小程序用户',1,'com.ruoyi.wx.controller.WxUserController.addSave()','POST',1,NULL,NULL,'//wx/user/add','127.0.0.1','内网IP','{ }','null',1,'','2020-04-23 23:47:40'),(133,'小程序用户',1,'com.ruoyi.wx.controller.WxUserController.addSave()','POST',1,NULL,NULL,'//wx/user/add','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"新建成功\",\r\n  \"code\" : 0,\r\n  \"data\" : {\r\n    \"searchValue\" : null,\r\n    \"createBy\" : null,\r\n    \"createTime\" : null,\r\n    \"updateBy\" : null,\r\n    \"updateTime\" : null,\r\n    \"remark\" : null,\r\n    \"params\" : { },\r\n    \"id\" : 2,\r\n    \"openid\" : \"oVKI-5auw-KUFMPLspWr9i9xRULE\",\r\n    \"nickName\" : \":sleeping_accommodation:\",\r\n    \"sex\" : null,\r\n    \"avatar\" : \"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKbLhPctd3pQS2WDv6ollIYdzGS2btGWtkIBuxukl4exOIKqNEdV7wgzhkgBDZfcHvvVkpdRrMpyw/132\",\r\n    \"status\" : null,\r\n    \"code\" : \"061tSOl80Il7aE1pvum80NM0m80tSOl-\",\r\n    \"sessionKey\" : null,\r\n    \"rawData\" : null,\r\n    \"signature\" : null,\r\n    \"encryptedData\" : null,\r\n    \"iv\" : null\r\n  }\r\n}',0,NULL,'2020-04-23 23:49:04'),(134,'小程序用户',1,'com.ruoyi.wx.controller.WxUserController.addSave()','POST',1,NULL,NULL,'//wx/user/add','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"更新失败\",\r\n  \"code\" : 500,\r\n  \"data\" : {\r\n    \"searchValue\" : null,\r\n    \"createBy\" : null,\r\n    \"createTime\" : null,\r\n    \"updateBy\" : null,\r\n    \"updateTime\" : null,\r\n    \"remark\" : null,\r\n    \"params\" : { },\r\n    \"id\" : null,\r\n    \"openid\" : \"oVKI-5auw-KUFMPLspWr9i9xRULE\",\r\n    \"nickName\" : \":sleeping_accommodation:\",\r\n    \"sex\" : null,\r\n    \"avatar\" : \"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKbLhPctd3pQS2WDv6ollIYdzGS2btGWtkIBuxukl4exOIKqNEdV7wgzhkgBDZfcHvvVkpdRrMpyw/132\",\r\n    \"status\" : null,\r\n    \"code\" : \"081VvInj1nrkrs0mBWkj1NaJnj1VvInE\",\r\n    \"sessionKey\" : null,\r\n    \"rawData\" : null,\r\n    \"signature\" : null,\r\n    \"encryptedData\" : null,\r\n    \"iv\" : null\r\n  }\r\n}',0,NULL,'2020-04-23 23:49:46'),(135,'小程序用户',1,'com.ruoyi.wx.controller.WxUserController.addSave()','POST',1,NULL,NULL,'//wx/user/add','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"更新失败\",\r\n  \"code\" : 500,\r\n  \"data\" : {\r\n    \"searchValue\" : null,\r\n    \"createBy\" : null,\r\n    \"createTime\" : null,\r\n    \"updateBy\" : null,\r\n    \"updateTime\" : null,\r\n    \"remark\" : null,\r\n    \"params\" : { },\r\n    \"id\" : null,\r\n    \"openid\" : \"oVKI-5auw-KUFMPLspWr9i9xRULE\",\r\n    \"nickName\" : \":sleeping_accommodation:\",\r\n    \"sex\" : null,\r\n    \"avatar\" : \"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKbLhPctd3pQS2WDv6ollIYdzGS2btGWtkIBuxukl4exOIKqNEdV7wgzhkgBDZfcHvvVkpdRrMpyw/132\",\r\n    \"status\" : null,\r\n    \"code\" : \"061rAZ5J0Zo0ud21uI6J0xmK5J0rAZ58\",\r\n    \"sessionKey\" : null,\r\n    \"rawData\" : null,\r\n    \"signature\" : null,\r\n    \"encryptedData\" : null,\r\n    \"iv\" : null\r\n  }\r\n}',0,NULL,'2020-04-23 23:52:34'),(136,'小程序用户',1,'com.ruoyi.wx.controller.WxUserController.addSave()','POST',1,NULL,NULL,'//wx/user/add','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"更新失败\",\r\n  \"code\" : 500,\r\n  \"data\" : {\r\n    \"searchValue\" : null,\r\n    \"createBy\" : null,\r\n    \"createTime\" : null,\r\n    \"updateBy\" : null,\r\n    \"updateTime\" : null,\r\n    \"remark\" : null,\r\n    \"params\" : { },\r\n    \"id\" : null,\r\n    \"openid\" : \"oVKI-5auw-KUFMPLspWr9i9xRULE\",\r\n    \"nickName\" : \":sleeping_accommodation:\",\r\n    \"sex\" : 1,\r\n    \"avatar\" : \"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKbLhPctd3pQS2WDv6ollIYdzGS2btGWtkIBuxukl4exOIKqNEdV7wgzhkgBDZfcHvvVkpdRrMpyw/132\",\r\n    \"status\" : null,\r\n    \"code\" : \"071XQdYa2NAzYJ0syUWa2HsRXa2XQdYk\",\r\n    \"sessionKey\" : null,\r\n    \"rawData\" : null,\r\n    \"signature\" : null,\r\n    \"encryptedData\" : null,\r\n    \"iv\" : null\r\n  }\r\n}',0,NULL,'2020-04-23 23:53:06'),(137,'小程序用户',1,'com.ruoyi.wx.controller.WxUserController.addSave()','POST',1,NULL,NULL,'//wx/user/add','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"更新失败\",\r\n  \"code\" : 500,\r\n  \"data\" : {\r\n    \"searchValue\" : null,\r\n    \"createBy\" : null,\r\n    \"createTime\" : null,\r\n    \"updateBy\" : null,\r\n    \"updateTime\" : null,\r\n    \"remark\" : null,\r\n    \"params\" : { },\r\n    \"id\" : null,\r\n    \"openid\" : \"oVKI-5auw-KUFMPLspWr9i9xRULE\",\r\n    \"nickName\" : \":sleeping_accommodation:\",\r\n    \"sex\" : 1,\r\n    \"avatar\" : \"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKbLhPctd3pQS2WDv6ollIYdzGS2btGWtkIBuxukl4exOIKqNEdV7wgzhkgBDZfcHvvVkpdRrMpyw/132\",\r\n    \"status\" : null,\r\n    \"code\" : \"0214cXM60Y38JF1tYbK60SlMM604cXME\",\r\n    \"sessionKey\" : null,\r\n    \"rawData\" : null,\r\n    \"signature\" : null,\r\n    \"encryptedData\" : null,\r\n    \"iv\" : null\r\n  }\r\n}',0,NULL,'2020-04-23 23:56:22'),(138,'小程序用户',1,'com.ruoyi.wx.controller.WxUserController.addSave()','POST',1,NULL,NULL,'//wx/user/add','127.0.0.1','内网IP','{ }','{\r\n  \"msg\" : \"更新成功\",\r\n  \"code\" : 0,\r\n  \"data\" : {\r\n    \"searchValue\" : null,\r\n    \"createBy\" : null,\r\n    \"createTime\" : null,\r\n    \"updateBy\" : null,\r\n    \"updateTime\" : null,\r\n    \"remark\" : null,\r\n    \"params\" : { },\r\n    \"id\" : null,\r\n    \"openid\" : \"oVKI-5auw-KUFMPLspWr9i9xRULE\",\r\n    \"nickName\" : \":sleeping_accommodation:\",\r\n    \"sex\" : 1,\r\n    \"avatar\" : \"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKbLhPctd3pQS2WDv6ollIYdzGS2btGWtkIBuxukl4exOIKqNEdV7wgzhkgBDZfcHvvVkpdRrMpyw/132\",\r\n    \"status\" : null,\r\n    \"code\" : \"0713btam0xLpBp1Qwxbm0J2oam03bta4\",\r\n    \"sessionKey\" : null,\r\n    \"rawData\" : null,\r\n    \"signature\" : null,\r\n    \"encryptedData\" : null,\r\n    \"iv\" : null\r\n  }\r\n}',0,NULL,'2020-04-23 23:58:24');
 /*!40000 ALTER TABLE `sys_oper_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -764,7 +762,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_post`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_post` (
   `post_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '岗位ID',
   `post_code` varchar(64) NOT NULL COMMENT '岗位编码',
@@ -796,7 +794,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_role` (
   `role_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
   `role_name` varchar(30) NOT NULL COMMENT '角色名称',
@@ -830,7 +828,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_role_dept`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_role_dept` (
   `role_id` bigint(20) NOT NULL COMMENT '角色ID',
   `dept_id` bigint(20) NOT NULL COMMENT '部门ID',
@@ -854,7 +852,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_role_menu`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_role_menu` (
   `role_id` bigint(20) NOT NULL COMMENT '角色ID',
   `menu_id` bigint(20) NOT NULL COMMENT '菜单ID',
@@ -877,7 +875,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_user` (
   `user_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
   `dept_id` bigint(20) DEFAULT NULL COMMENT '部门ID',
@@ -909,7 +907,7 @@ CREATE TABLE `sys_user` (
 
 LOCK TABLES `sys_user` WRITE;
 /*!40000 ALTER TABLE `sys_user` DISABLE KEYS */;
-INSERT INTO `sys_user` VALUES (1,103,'admin','若依','00','ry@163.com','15888888888','1','','29c67a30398638269fe600f73a054934','111111','0','0','127.0.0.1','2020-04-23 14:31:43','admin','2018-03-16 11:33:00','ry','2020-04-23 14:31:43','管理员'),(2,105,'ry','若依','00','ry@qq.com','15666666666','1','','8e6d98b90472783cc73c17047ddccf36','222222','0','0','127.0.0.1','2018-03-16 11:33:00','admin','2018-03-16 11:33:00','ry','2018-03-16 11:33:00','测试员');
+INSERT INTO `sys_user` VALUES (1,103,'admin','若依','00','ry@163.com','15888888888','1','','29c67a30398638269fe600f73a054934','111111','0','0','127.0.0.1','2020-04-23 22:25:03','admin','2018-03-16 11:33:00','ry','2020-04-23 22:25:03','管理员'),(2,105,'ry','若依','00','ry@qq.com','15666666666','1','','8e6d98b90472783cc73c17047ddccf36','222222','0','0','127.0.0.1','2018-03-16 11:33:00','admin','2018-03-16 11:33:00','ry','2018-03-16 11:33:00','测试员');
 /*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -919,7 +917,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_user_online`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_user_online` (
   `sessionId` varchar(50) NOT NULL DEFAULT '' COMMENT '用户会话id',
   `login_name` varchar(50) DEFAULT '' COMMENT '登录账号',
@@ -942,7 +940,6 @@ CREATE TABLE `sys_user_online` (
 
 LOCK TABLES `sys_user_online` WRITE;
 /*!40000 ALTER TABLE `sys_user_online` DISABLE KEYS */;
-INSERT INTO `sys_user_online` VALUES ('96237e45-1d48-4393-a4ff-d004ecc2ab28','admin','研发部门','127.0.0.1','内网IP','Chrome 8','Windows 10','on_line','2020-04-23 14:31:38','2020-04-23 15:23:46',1800000);
 /*!40000 ALTER TABLE `sys_user_online` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -952,7 +949,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_user_post`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_user_post` (
   `user_id` bigint(20) NOT NULL COMMENT '用户ID',
   `post_id` bigint(20) NOT NULL COMMENT '岗位ID',
@@ -976,7 +973,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sys_user_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_user_role` (
   `user_id` bigint(20) NOT NULL COMMENT '用户ID',
   `role_id` bigint(20) NOT NULL COMMENT '角色ID',
@@ -1000,7 +997,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `wx_ball_game`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `wx_ball_game` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL COMMENT '球局名称',
@@ -1034,7 +1031,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `wx_ball_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `wx_ball_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `name` varchar(45) NOT NULL DEFAULT '羽毛球' COMMENT '名称',
@@ -1058,7 +1055,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `wx_feedback`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `wx_feedback` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '反馈Id',
   `name` varchar(50) DEFAULT NULL COMMENT '用户名称',
@@ -1086,17 +1083,17 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `wx_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `wx_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
   `openid` varchar(50) NOT NULL COMMENT '开放Id',
   `nick_name` varchar(45) DEFAULT NULL COMMENT '用户昵称',
   `sex` int(11) DEFAULT NULL COMMENT '用户性别',
   `avatar` varchar(200) DEFAULT NULL COMMENT '用户头像',
-  `status` int(11) DEFAULT NULL COMMENT '用户状态',
-  `create_time` datetime DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '用户状态',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='小程序用户';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='小程序用户';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1105,7 +1102,7 @@ CREATE TABLE `wx_user` (
 
 LOCK TABLES `wx_user` WRITE;
 /*!40000 ALTER TABLE `wx_user` DISABLE KEYS */;
-INSERT INTO `wx_user` VALUES (1,'123123','wyx',1,'1231',1,NULL);
+INSERT INTO `wx_user` VALUES (1,'123123','wyx',1,'1231',1,'2020-04-15 00:34:03'),(2,'oVKI-5auw-KUFMPLspWr9i9xRULE',':sleeping_accommodation:',1,'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKbLhPctd3pQS2WDv6ollIYdzGS2btGWtkIBuxukl4exOIKqNEdV7wgzhkgBDZfcHvvVkpdRrMpyw/132',1,'2020-04-23 23:58:24');
 /*!40000 ALTER TABLE `wx_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1115,7 +1112,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `wx_user_game`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `wx_user_game` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `g_id` int(11) NOT NULL,
@@ -1144,7 +1141,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `wx_video`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `wx_video` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '视频Id',
   `u_id` int(11) NOT NULL COMMENT '用户Id',
@@ -1179,4 +1176,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-23 15:32:10
+-- Dump completed on 2020-04-23 23:59:33
