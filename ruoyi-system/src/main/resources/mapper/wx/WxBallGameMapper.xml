@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.wx.mapper.WxBallGameMapper">
+    
+    <resultMap type="WxBallGame" id="WxBallGameResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="summary"    column="summary"    />
+        <result property="playDate"    column="play_date"    />
+        <result property="type"    column="type"    />
+        <result property="scoreMine"    column="score_mine"    />
+        <result property="scoreOther"    column="score_other"    />
+        <result property="peopleNumner"    column="people_numner"    />
+        <result property="address"    column="address"    />
+        <result property="status"    column="status"    />
+        <result property="cost"    column="cost"    />
+        <result property="contact"    column="contact"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectWxBallGameVo">
+        select id, title, summary, play_date, type, score_mine, score_other, people_numner, address, status, cost, contact, create_time from wx_ball_game
+    </sql>
+
+    <select id="selectWxBallGameList" parameterType="WxBallGame" resultMap="WxBallGameResult">
+        <include refid="selectWxBallGameVo"/>
+        <where>  
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="summary != null  and summary != ''"> and summary = #{summary}</if>
+            <if test="playDate != null "> and play_date = #{playDate}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="scoreMine != null "> and score_mine = #{scoreMine}</if>
+            <if test="scoreOther != null "> and score_other = #{scoreOther}</if>
+            <if test="peopleNumner != null "> and people_numner = #{peopleNumner}</if>
+            <if test="address != null  and address != ''"> and address = #{address}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="cost != null "> and cost = #{cost}</if>
+            <if test="contact != null  and contact != ''"> and contact = #{contact}</if>
+        </where>
+    </select>
+    
+    <select id="selectWxBallGameById" parameterType="Long" resultMap="WxBallGameResult">
+        <include refid="selectWxBallGameVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertWxBallGame" parameterType="WxBallGame" useGeneratedKeys="true" keyProperty="id">
+        insert into wx_ball_game
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null  and title != ''">title,</if>
+            <if test="summary != null  and summary != ''">summary,</if>
+            <if test="playDate != null ">play_date,</if>
+            <if test="type != null  and type != ''">type,</if>
+            <if test="scoreMine != null ">score_mine,</if>
+            <if test="scoreOther != null ">score_other,</if>
+            <if test="peopleNumner != null ">people_numner,</if>
+            <if test="address != null  and address != ''">address,</if>
+            <if test="status != null ">status,</if>
+            <if test="cost != null ">cost,</if>
+            <if test="contact != null  and contact != ''">contact,</if>
+            <if test="createTime != null ">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null  and title != ''">#{title},</if>
+            <if test="summary != null  and summary != ''">#{summary},</if>
+            <if test="playDate != null ">#{playDate},</if>
+            <if test="type != null  and type != ''">#{type},</if>
+            <if test="scoreMine != null ">#{scoreMine},</if>
+            <if test="scoreOther != null ">#{scoreOther},</if>
+            <if test="peopleNumner != null ">#{peopleNumner},</if>
+            <if test="address != null  and address != ''">#{address},</if>
+            <if test="status != null ">#{status},</if>
+            <if test="cost != null ">#{cost},</if>
+            <if test="contact != null  and contact != ''">#{contact},</if>
+            <if test="createTime != null ">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateWxBallGame" parameterType="WxBallGame">
+        update wx_ball_game
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null  and title != ''">title = #{title},</if>
+            <if test="summary != null  and summary != ''">summary = #{summary},</if>
+            <if test="playDate != null ">play_date = #{playDate},</if>
+            <if test="type != null  and type != ''">type = #{type},</if>
+            <if test="scoreMine != null ">score_mine = #{scoreMine},</if>
+            <if test="scoreOther != null ">score_other = #{scoreOther},</if>
+            <if test="peopleNumner != null ">people_numner = #{peopleNumner},</if>
+            <if test="address != null  and address != ''">address = #{address},</if>
+            <if test="status != null ">status = #{status},</if>
+            <if test="cost != null ">cost = #{cost},</if>
+            <if test="contact != null  and contact != ''">contact = #{contact},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteWxBallGameById" parameterType="Long">
+        delete from wx_ball_game where id = #{id}
+    </delete>
+
+    <delete id="deleteWxBallGameByIds" parameterType="String">
+        delete from wx_ball_game where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
