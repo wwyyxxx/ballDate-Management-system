@@ -38,6 +38,13 @@ public class WxUser extends BaseEntity
     @Excel(name = "用户状态")
     private String status;
 
+    private String code;
+    private String sessionKey;
+    private String rawData;
+    private String signature;
+    private String encryptedData;
+    private String iv;
+
     public void setId(Long id) 
     {
         this.id = id;
@@ -91,6 +98,58 @@ public class WxUser extends BaseEntity
     public String getStatus() 
     {
         return status;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getSessionKey() {
+        return sessionKey;
+    }
+
+    public void setSessionKey(String sessionKey) {
+        this.sessionKey = sessionKey;
+    }
+
+    public String getRawData() {
+        return rawData;
+    }
+
+    public void setRawData(String rawData) {
+        this.rawData = rawData;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    public String getEncryptedData() {
+        return encryptedData;
+    }
+
+    public void setEncryptedData(String encryptedData) {
+        this.encryptedData = encryptedData;
+    }
+
+    public String getIv() {
+        return iv;
+    }
+
+    public void setIv(String iv) {
+        this.iv = iv;
     }
 
     @Override

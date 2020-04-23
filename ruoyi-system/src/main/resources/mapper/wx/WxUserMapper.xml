@@ -32,7 +32,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectWxUserVo"/>
         where id = #{id}
     </select>
-        
+
+    <select id="findByOpenId" parameterType="string" resultMap="WxUserResult" flushCache="true" useCache="true">
+        <include refid="selectWxUserVo"/>
+        WHERE openid = #{openId}
+    </select>
+
     <insert id="insertWxUser" parameterType="WxUser" useGeneratedKeys="true" keyProperty="id">
         insert into wx_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -60,7 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="avatar != null  and avatar != ''">avatar = #{avatar},</if>
             <if test="status != null  and status != ''">status = #{status},</if>
         </trim>
-        where id = #{id}
+        where openid = #{openid}
     </update>
 
     <delete id="deleteWxUserById" parameterType="Long">

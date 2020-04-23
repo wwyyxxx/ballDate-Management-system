@@ -92,4 +92,9 @@ public class WxUserServiceImpl implements IWxUserService
     {
         return wxUserMapper.deleteWxUserById(id);
     }
+
+    @Override
+    public WxUser findByOpenId(String openId) {
+        return wxUserMapper.findByOpenId(openId);
+    }
 }

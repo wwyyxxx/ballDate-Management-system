@@ -30,6 +30,18 @@ public class Global
     /** 获取地址开关 */
     private static boolean addressEnabled;
 
+    /**
+     * 小程序AppId
+     */
+    public static final String APPID = "wx5b72f8fe6e5040a2";
+
+    /**
+     * 小程序AppSecret
+     */
+    public static final String APPSECRET = "7bab9557702ec8baaebe926f519f1cff";
+
+    public static String LOGIN_URL = "https://api.weixin.qq.com/sns/jscode2session?appid="+ APPID +"&secret="+ APPSECRET +"&js_code=JSCODE&grant_type=authorization_code";
+
     public static String getName()
     {
         return name;

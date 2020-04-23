@@ -60,4 +60,5 @@ public interface WxUserMapper
      * @return 结果
      */
     public int deleteWxUserByIds(String[] ids);
+    WxUser findByOpenId(String openId);
 }

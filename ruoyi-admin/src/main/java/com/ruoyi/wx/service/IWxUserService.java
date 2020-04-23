@@ -60,4 +60,6 @@ public interface IWxUserService
      * @return 结果
      */
     public int deleteWxUserById(Long id);
+
+    WxUser findByOpenId(String openId);
 }
