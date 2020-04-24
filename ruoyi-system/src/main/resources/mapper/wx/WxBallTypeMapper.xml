@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectWxBallTypeVo"/>
         where id = #{id}
     </select>
-        
+
     <insert id="insertWxBallType" parameterType="WxBallType" useGeneratedKeys="true" keyProperty="id">
         insert into wx_ball_type
         <trim prefix="(" suffix=")" suffixOverrides=",">

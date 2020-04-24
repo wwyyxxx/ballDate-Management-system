@@ -1,15 +1,13 @@
-package com.ruoyi.web.controller.wx;
+package com.ruoyi.wx.controller;
 
 import java.util.List;
+
+import com.ruoyi.wx.service.IWxUserGameService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.enums.BusinessType;
 import com.ruoyi.wx.domain.WxBallGame;
@@ -44,10 +42,10 @@ public class WxBallGameController extends BaseController
     /**
      * 查询球局列表
      */
-    @RequiresPermissions("wx:game:list")
+//    @RequiresPermissions("wx:game:list")
     @PostMapping("/list")
     @ResponseBody
-    public TableDataInfo list(WxBallGame wxBallGame)
+    public TableDataInfo list(@RequestBody(required = false) WxBallGame wxBallGame)
     {
         startPage();
         List<WxBallGame> list = wxBallGameService.selectWxBallGameList(wxBallGame);
@@ -80,11 +78,11 @@ public class WxBallGameController extends BaseController
     /**
      * 新增保存球局
      */
-    @RequiresPermissions("wx:game:add")
+//    @RequiresPermissions("wx:game:add")
     @Log(title = "球局", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
-    public AjaxResult addSave(WxBallGame wxBallGame)
+    public AjaxResult addSave(@RequestBody WxBallGame wxBallGame)
     {
         return toAjax(wxBallGameService.insertWxBallGame(wxBallGame));
     }

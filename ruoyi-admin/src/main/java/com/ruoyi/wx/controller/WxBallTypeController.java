@@ -44,7 +44,7 @@ public class WxBallTypeController extends BaseController
     /**
      * 查询球类列表
      */
-    @RequiresPermissions("wx:type:list")
+//    @RequiresPermissions("wx:type:list")
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo list(WxBallType wxBallType)

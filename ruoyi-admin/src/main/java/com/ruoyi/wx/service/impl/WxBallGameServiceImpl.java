@@ -2,6 +2,8 @@ package com.ruoyi.wx.service.impl;
 
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.wx.domain.WxUserGame;
+import com.ruoyi.wx.mapper.WxUserGameMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.wx.mapper.WxBallGameMapper;
@@ -20,6 +22,9 @@ public class WxBallGameServiceImpl implements IWxBallGameService
 {
     @Autowired
     private WxBallGameMapper wxBallGameMapper;
+
+    @Autowired
+    private WxUserGameMapper wxUserGameMapper;
 
     /**
      * 查询球局
@@ -42,7 +47,14 @@ public class WxBallGameServiceImpl implements IWxBallGameService
     @Override
     public List<WxBallGame> selectWxBallGameList(WxBallGame wxBallGame)
     {
-        return wxBallGameMapper.selectWxBallGameList(wxBallGame);
+        WxUserGame wxUserGame = new WxUserGame();
+        List<WxBallGame> ballGames = wxBallGameMapper.selectWxBallGameList(wxBallGame);
+        for (WxBallGame ballGame: ballGames ) {
+            List<WxUserGame> list =  wxUserGameMapper.selectWxUserGameList(wxUserGame);
+            ballGame.setUserGameList(list);
+            ballGame.setCount((long) list.size());
+        }
+        return ballGames;
     }
 
     /**

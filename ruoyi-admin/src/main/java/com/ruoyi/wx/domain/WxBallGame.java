@@ -1,6 +1,9 @@
 package com.ruoyi.wx.domain;
 
 import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -29,6 +32,7 @@ public class WxBallGame extends BaseEntity
 
     /** 比赛日期 */
     @Excel(name = "比赛日期", width = 30, dateFormat = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date playDate;
 
     /** 球局类型 */
@@ -62,6 +66,10 @@ public class WxBallGame extends BaseEntity
     /** 组局人联系方式 */
     @Excel(name = "组局人联系方式")
     private String contact;
+
+    private List<WxUserGame> userGameList;
+
+    private Long count;
 
     public void setId(Long id) 
     {
@@ -170,6 +178,22 @@ public class WxBallGame extends BaseEntity
     public String getContact() 
     {
         return contact;
+    }
+
+    public List<WxUserGame> getUserGameList() {
+        return userGameList;
+    }
+
+    public void setUserGameList(List<WxUserGame> userGameList) {
+        this.userGameList = userGameList;
+    }
+
+    public Long getCount() {
+        return count;
+    }
+
+    public void setCount(Long count) {
+        this.count = count;
     }
 
     @Override

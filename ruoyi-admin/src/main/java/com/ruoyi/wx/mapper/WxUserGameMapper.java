@@ -58,4 +58,6 @@ public interface WxUserGameMapper
      * @return 结果
      */
     public int deleteWxUserGameByIds(String[] ids);
+
+    public int count(Long id);
 }
