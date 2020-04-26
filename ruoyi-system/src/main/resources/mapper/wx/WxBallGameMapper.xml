@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <resultMap type="WxBallGame" id="WxBallGameResult">
         <result property="id"    column="id"    />
         <result property="title"    column="title"    />
-        <result property="summary"    column="summary"    />
+        <result property="uId"    column="u_id"    />
         <result property="playDate"    column="play_date"    />
         <result property="type"    column="type"    />
         <result property="scoreMine"    column="score_mine"    />
@@ -18,6 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="cost"    column="cost"    />
         <result property="contact"    column="contact"    />
         <result property="createTime"    column="create_time"    />
+        <association property="wxUser"    column="u_id" javaType="WxUser" resultMap="WxUserResult" />
     </resultMap>
 
     <resultMap type="WxUser" id="WxUserResult">
@@ -30,14 +31,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectWxBallGameVo">
-        select id, title, summary, play_date, type, score_mine, score_other, people_numner, address, status, cost, contact, create_time from wx_ball_game
+        select bg.id, title, u_id, play_date, type, score_mine, score_other, people_numner, address, bg.status, cost, contact, bg.create_time,
+        u.id, openid, nick_name, sex, avatar, u.status
+        from wx_ball_game bg
+        LEFT JOIN wx_user u
+        ON bg.u_id = u.id
     </sql>
 
     <select id="selectWxBallGameList" parameterType="WxBallGame" resultMap="WxBallGameResult">
         <include refid="selectWxBallGameVo"/>
         <where>  
             <if test="title != null  and title != ''"> and title = #{title}</if>
-            <if test="summary != null  and summary != ''"> and summary = #{summary}</if>
+            <if test="uId != null "> and u_id = #{uId}</if>
             <if test="playDate != null "> and play_date = #{playDate}</if>
             <if test="type != null  and type != ''"> and type = #{type}</if>
             <if test="scoreMine != null "> and score_mine = #{scoreMine}</if>
@@ -59,7 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into wx_ball_game
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="title != null  and title != ''">title,</if>
-            <if test="summary != null  and summary != ''">summary,</if>
+            <if test="uId != null ">u_id,</if>
             <if test="playDate != null ">play_date,</if>
             <if test="type != null  and type != ''">type,</if>
             <if test="scoreMine != null ">score_mine,</if>
@@ -73,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="title != null  and title != ''">#{title},</if>
-            <if test="summary != null  and summary != ''">#{summary},</if>
+            <if test="uId != null">#{uId},</if>
             <if test="playDate != null ">#{playDate},</if>
             <if test="type != null  and type != ''">#{type},</if>
             <if test="scoreMine != null ">#{scoreMine},</if>
@@ -91,7 +96,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update wx_ball_game
         <trim prefix="SET" suffixOverrides=",">
             <if test="title != null  and title != ''">title = #{title},</if>
-            <if test="summary != null  and summary != ''">summary = #{summary},</if>
+            <if test="uId != null "> u_id = #{uId}</if>
             <if test="playDate != null ">play_date = #{playDate},</if>
             <if test="type != null  and type != ''">type = #{type},</if>
             <if test="scoreMine != null ">score_mine = #{scoreMine},</if>

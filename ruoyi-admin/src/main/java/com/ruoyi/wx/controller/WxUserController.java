@@ -106,9 +106,9 @@ public class WxUserController extends BaseController {
             } else {
                 int status = wxUserService.updateWxUser(wxUser);
                 if (status>0) {
-                    ajaxResult = new AjaxResult(AjaxResult.Type.SUCCESS,"更新成功",wxUser);
+                    ajaxResult = new AjaxResult(AjaxResult.Type.SUCCESS,"更新成功",wxUserEntity1);
                 } else {
-                    ajaxResult = new AjaxResult(AjaxResult.Type.ERROR,"更新失败",wxUser);
+                    ajaxResult = new AjaxResult(AjaxResult.Type.ERROR,"更新失败",wxUserEntity1);
                 }
             }
         }

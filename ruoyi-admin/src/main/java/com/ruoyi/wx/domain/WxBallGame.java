@@ -26,9 +26,8 @@ public class WxBallGame extends BaseEntity
     @Excel(name = "球局名称")
     private String title;
 
-    /** 球局简介 */
-    @Excel(name = "球局简介")
-    private String summary;
+    @Excel(name = "球局发起人")
+    private Long uId;
 
     /** 比赛日期 */
     @Excel(name = "比赛日期", width = 30, dateFormat = "yyyy-MM-dd")
@@ -69,6 +68,8 @@ public class WxBallGame extends BaseEntity
 
     private List<WxUserGame> userGameList;
 
+    private WxUser wxUser;
+
     private Long count;
 
     public void setId(Long id) 
@@ -89,21 +90,20 @@ public class WxBallGame extends BaseEntity
     {
         return title;
     }
-    public void setSummary(String summary) 
-    {
-        this.summary = summary;
-    }
-
-    public String getSummary() 
-    {
-        return summary;
-    }
-    public void setPlayDate(Date playDate) 
+    public void setPlayDate(Date playDate)
     {
         this.playDate = playDate;
     }
 
-    public Date getPlayDate() 
+    public Long getuId() {
+        return uId;
+    }
+
+    public void setuId(Long uId) {
+        this.uId = uId;
+    }
+
+    public Date getPlayDate()
     {
         return playDate;
     }
@@ -196,12 +196,19 @@ public class WxBallGame extends BaseEntity
         this.count = count;
     }
 
+    public WxUser getWxUser() {
+        return wxUser;
+    }
+
+    public void setWxUser(WxUser wxUser) {
+        this.wxUser = wxUser;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
             .append("id", getId())
             .append("title", getTitle())
-            .append("summary", getSummary())
             .append("playDate", getPlayDate())
             .append("type", getType())
             .append("scoreMine", getScoreMine())

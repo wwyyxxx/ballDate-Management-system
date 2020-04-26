@@ -101,11 +101,11 @@ public class WxBallGameController extends BaseController
     /**
      * 修改保存球局
      */
-    @RequiresPermissions("wx:game:edit")
+//    @RequiresPermissions("wx:game:edit")
     @Log(title = "球局", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
-    public AjaxResult editSave(WxBallGame wxBallGame)
+    public AjaxResult editSave(@RequestBody WxBallGame wxBallGame)
     {
         return toAjax(wxBallGameService.updateWxBallGame(wxBallGame));
     }
@@ -113,7 +113,7 @@ public class WxBallGameController extends BaseController
     /**
      * 删除球局
      */
-    @RequiresPermissions("wx:game:remove")
+//    @RequiresPermissions("wx:game:remove")
     @Log(title = "球局", businessType = BusinessType.DELETE)
     @PostMapping( "/remove")
     @ResponseBody

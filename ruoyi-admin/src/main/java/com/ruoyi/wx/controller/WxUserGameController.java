@@ -5,11 +5,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.enums.BusinessType;
 import com.ruoyi.wx.domain.WxUserGame;
@@ -80,11 +76,11 @@ public class WxUserGameController extends BaseController
     /**
      * 新增保存报名模块
      */
-    @RequiresPermissions("wx:participate:add")
+//    @RequiresPermissions("wx:participate:add")
     @Log(title = "报名模块", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
-    public AjaxResult addSave(WxUserGame wxUserGame)
+    public AjaxResult addSave(@RequestBody WxUserGame wxUserGame)
     {
         return toAjax(wxUserGameService.insertWxUserGame(wxUserGame));
     }
@@ -103,11 +99,11 @@ public class WxUserGameController extends BaseController
     /**
      * 修改保存报名模块
      */
-    @RequiresPermissions("wx:participate:edit")
+//    @RequiresPermissions("wx:participate:edit")
     @Log(title = "报名模块", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
-    public AjaxResult editSave(WxUserGame wxUserGame)
+    public AjaxResult editSave(@RequestBody WxUserGame wxUserGame)
     {
         return toAjax(wxUserGameService.updateWxUserGame(wxUserGame));
     }
@@ -115,7 +111,7 @@ public class WxUserGameController extends BaseController
     /**
      * 删除报名模块
      */
-    @RequiresPermissions("wx:participate:remove")
+//    @RequiresPermissions("wx:participate:remove")
     @Log(title = "报名模块", businessType = BusinessType.DELETE)
     @PostMapping( "/remove")
     @ResponseBody
