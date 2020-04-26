@@ -2,6 +2,8 @@ package com.ruoyi.web.controller.common;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.common.utils.file.MimeTypeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,7 +79,7 @@ public class CommonController
             // 上传文件路径
             String filePath = Global.getUploadPath();
             // 上传并返回新文件名称
-            String fileName = FileUploadUtils.upload(filePath, file);
+            String fileName = FileUploadUtils.upload(filePath, file, MimeTypeUtils.MEDIA_EXTENSION);
             String url = serverConfig.getUrl() + fileName;
             AjaxResult ajax = AjaxResult.success();
             ajax.put("fileName", fileName);

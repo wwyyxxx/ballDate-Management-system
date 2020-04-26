@@ -44,7 +44,7 @@ public class WxVideoController extends BaseController
     /**
      * 查询视频列表
      */
-    @RequiresPermissions("wx:video:list")
+//    @RequiresPermissions("wx:video:list")
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo list(WxVideo wxVideo)
@@ -80,7 +80,7 @@ public class WxVideoController extends BaseController
     /**
      * 新增保存视频
      */
-    @RequiresPermissions("wx:video:add")
+//    @RequiresPermissions("wx:video:add")
     @Log(title = "视频", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
@@ -115,7 +115,7 @@ public class WxVideoController extends BaseController
     /**
      * 删除视频
      */
-    @RequiresPermissions("wx:video:remove")
+//    @RequiresPermissions("wx:video:remove")
     @Log(title = "视频", businessType = BusinessType.DELETE)
     @PostMapping( "/remove")
     @ResponseBody
