@@ -8,7 +8,7 @@
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
         <form class="form-horizontal m" id="form-video-edit" th:object="${wxVideo}">
             <input name="id" th:field="*{id}" type="hidden">
-            <div class="form-group">    
+            <!--<div class="form-group">
                 <label class="col-sm-3 control-label is-required">用户Id：</label>
                 <div class="col-sm-8">
                     <input name="uId" th:field="*{uId}" class="form-control" type="text" required>
@@ -40,18 +40,21 @@
                 <div class="col-sm-8">
                     <input name="url" th:field="*{url}" class="form-control" type="text">
                 </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">状态0：审核中1：通过2.：未通过：</label>
+            </div>-->
+<!--            0：审核中1：通过2.：未通过：-->
+            <div class="form-group">
+                <label class="col-sm-3 control-label">状态</label>
                 <div class="col-sm-8">
-                    <div class="radio-box">
-                        <input type="radio" name="status" value="">
-                        <label th:for="status" th:text="未知"></label>
+                    <div class="col-sm-9">
+                        <select class="form-control" name="status">
+                            <option th:selected="*{status == 0}" value="0">请选择是否通过审核</option>
+                            <option th:selected="*{status == 1}" value="1">通过审核</option>
+                            <option th:selected="*{status == 2}" value="2">拒绝通过</option>
+                        </select>
                     </div>
-                    <span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 代码生成请选择字典属性</span>
                 </div>
             </div>
-            <div class="form-group">    
+            <!--<div class="form-group">
                 <label class="col-sm-3 control-label">上传时间：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
@@ -59,7 +62,7 @@
                         <input name="creatTime" th:value="${#dates.format(wxVideo.creatTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
                     </div>
                 </div>
-            </div>
+            </div>-->
         </form>
     </div>
     <th:block th:include="include :: footer" />

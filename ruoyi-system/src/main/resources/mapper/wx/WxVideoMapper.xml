@@ -46,7 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="summary != null  and summary != ''">summary,</if>
             <if test="url != null  and url != ''">url,</if>
             <if test="status != null ">status,</if>
-            <if test="creatTime != null ">creat_time,</if>
+            creat_time,
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="uId != null ">#{uId},</if>
