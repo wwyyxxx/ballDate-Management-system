@@ -29,7 +29,7 @@ public class WxVideo extends BaseEntity
 
     /** 类型 */
     @Excel(name = "类型")
-    private Long type;
+    private String type;
 
     /** 简介 */
     @Excel(name = "简介")
@@ -74,12 +74,12 @@ public class WxVideo extends BaseEntity
     {
         return title;
     }
-    public void setType(Long type) 
+    public void setType(String type)
     {
         this.type = type;
     }
 
-    public Long getType() 
+    public String getType()
     {
         return type;
     }

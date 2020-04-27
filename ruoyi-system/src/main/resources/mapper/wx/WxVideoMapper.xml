@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <where>  
             <if test="uId != null "> and u_id = #{uId}</if>
             <if test="title != null  and title != ''"> and title = #{title}</if>
-            <if test="type != null "> and type = #{type}</if>
+            <if test="type != null and type != ''"> and type = #{type}</if>
             <if test="summary != null  and summary != ''"> and summary = #{summary}</if>
             <if test="url != null  and url != ''"> and url = #{url}</if>
             <if test="status != null "> and status = #{status}</if>
@@ -42,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="uId != null ">u_id,</if>
             <if test="title != null  and title != ''">title,</if>
-            <if test="type != null ">type,</if>
+            <if test="type != null and type != ''">type,</if>
             <if test="summary != null  and summary != ''">summary,</if>
             <if test="url != null  and url != ''">url,</if>
             <if test="status != null ">status,</if>
@@ -51,11 +51,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="uId != null ">#{uId},</if>
             <if test="title != null  and title != ''">#{title},</if>
-            <if test="type != null ">#{type},</if>
+            <if test="type != null and type != ''">#{type},</if>
             <if test="summary != null  and summary != ''">#{summary},</if>
             <if test="url != null  and url != ''">#{url},</if>
             <if test="status != null ">#{status},</if>
-            <if test="creatTime != null ">#{creatTime},</if>
+            <if test="creatTime != null ">now(),</if>
          </trim>
     </insert>
 
@@ -64,7 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="SET" suffixOverrides=",">
             <if test="uId != null ">u_id = #{uId},</if>
             <if test="title != null  and title != ''">title = #{title},</if>
-            <if test="type != null ">type = #{type},</if>
+            <if test="type != null and type != ''">type = #{type},</if>
             <if test="summary != null  and summary != ''">summary = #{summary},</if>
             <if test="url != null  and url != ''">url = #{url},</if>
             <if test="status != null ">status = #{status},</if>
