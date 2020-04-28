@@ -28,6 +28,8 @@ public class WxUserGame extends BaseEntity
     @Excel(name = "null")
     private Long uId;
 
+    private Long status;
+
     private List<WxUser> wxUsers;
 
     public void setId(Long id) 
@@ -56,6 +58,14 @@ public class WxUserGame extends BaseEntity
     public Long getuId() 
     {
         return uId;
+    }
+
+    public Long getStatus() {
+        return status;
+    }
+
+    public void setStatus(Long status) {
+        this.status = status;
     }
 
     public List<WxUser> getWxUsers() {
