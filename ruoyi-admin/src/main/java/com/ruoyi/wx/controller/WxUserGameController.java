@@ -82,7 +82,9 @@ public class WxUserGameController extends BaseController
     @ResponseBody
     public AjaxResult addSave(@RequestBody WxUserGame wxUserGame)
     {
-        return toAjax(wxUserGameService.insertWxUserGame(wxUserGame));
+        AjaxResult ajaxResult = toAjax(wxUserGameService.insertWxUserGame(wxUserGame));
+        ajaxResult.put("count",wxUserGameService.count(wxUserGame.getgId()));
+        return ajaxResult;
     }
 
     /**

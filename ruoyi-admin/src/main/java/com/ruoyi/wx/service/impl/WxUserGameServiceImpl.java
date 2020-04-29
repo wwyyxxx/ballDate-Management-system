@@ -93,4 +93,9 @@ public class WxUserGameServiceImpl implements IWxUserGameService
     {
         return wxUserGameMapper.deleteWxUserGameById(id);
     }
+
+    @Override
+    public int count(Long gId) {
+        return wxUserGameMapper.count(gId);
+    }
 }

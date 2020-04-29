@@ -40,7 +40,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectWxBallGameList" parameterType="WxBallGame" resultMap="WxBallGameResult">
         <include refid="selectWxBallGameVo"/>
-        <where>  
+        <where>
+            <if test="id != null"> and bg.id = #{id}</if>
             <if test="title != null  and title != ''"> and title = #{title}</if>
             <if test="uId != null "> and u_id = #{uId}</if>
             <if test="playDate != null "> and play_date = #{playDate}</if>

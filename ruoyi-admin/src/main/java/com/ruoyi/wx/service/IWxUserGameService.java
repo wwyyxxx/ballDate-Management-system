@@ -58,4 +58,6 @@ public interface IWxUserGameService
      * @return 结果
      */
     public int deleteWxUserGameById(Long id);
+
+    int count(Long gId);
 }
