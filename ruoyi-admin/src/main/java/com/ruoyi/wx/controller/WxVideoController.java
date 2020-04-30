@@ -43,7 +43,16 @@ public class WxVideoController extends BaseController
 //    @RequiresPermissions("wx:video:list")
     @PostMapping("/list")
     @ResponseBody
-    public TableDataInfo list(@RequestBody WxVideo wxVideo)
+    public TableDataInfo list(WxVideo wxVideo)
+    {
+        startPage();
+        List<WxVideo> list = wxVideoService.selectWxVideoList(wxVideo);
+        return getDataTable(list);
+    }
+
+    @PostMapping("/listForWx")
+    @ResponseBody
+    public TableDataInfo listForWx(@RequestBody WxVideo wxVideo)
     {
         startPage();
         List<WxVideo> list = wxVideoService.selectWxVideoList(wxVideo);
