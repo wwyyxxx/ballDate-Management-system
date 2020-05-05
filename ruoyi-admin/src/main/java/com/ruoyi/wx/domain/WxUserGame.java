@@ -32,6 +32,8 @@ public class WxUserGame extends BaseEntity
 
     private List<WxUser> wxUsers;
 
+    private WxBallGame wxBallGame;
+
     public void setId(Long id) 
     {
         this.id = id;
@@ -74,6 +76,14 @@ public class WxUserGame extends BaseEntity
 
     public void setWxUsers(List<WxUser> wxUsers) {
         this.wxUsers = wxUsers;
+    }
+
+    public WxBallGame getWxBallGame() {
+        return wxBallGame;
+    }
+
+    public void setWxBallGame(WxBallGame wxBallGame) {
+        this.wxBallGame = wxBallGame;
     }
 
     @Override

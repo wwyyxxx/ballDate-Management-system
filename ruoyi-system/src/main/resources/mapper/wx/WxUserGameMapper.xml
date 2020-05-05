@@ -10,6 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="uId"    column="u_id"    />
         <result property="status"    column="status"    />
         <result property="createTime"    column="create_time"    />
+        <association  property="wxBallGame"   javaType="WxBallGameResult"        resultMap="WxBallGameResult" />
         <collection  property="wxUsers"   javaType="java.util.List"        resultMap="WxUserResult" />
     </resultMap>
 
@@ -22,17 +23,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="status"    column="status"    />
     </resultMap>
 
+    <resultMap type="WxBallGame" id="WxBallGameResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="uId"    column="u_id"    />
+        <result property="playDate"    column="play_date"    />
+        <result property="type"    column="type"    />
+        <result property="scoreMine"    column="score_mine"    />
+        <result property="scoreOther"    column="score_other"    />
+        <result property="peopleNumner"    column="people_numner"    />
+        <result property="address"    column="address"    />
+        <result property="status"    column="status"    />
+        <result property="cost"    column="cost"    />
+        <result property="contact"    column="contact"    />
+        <result property="createTime"    column="create_time"    />
+        <association property="wxUser"    column="u_id" javaType="WxUser" resultMap="WxUserResult" />
+    </resultMap>
+
     <sql id="selectWxUserGameVo">
-        select u.id, u.openid, u.nick_name, u.sex, u.avatar, ug.status
+        select u.id, u.openid, u.nick_name, u.sex, u.avatar, ug.status,
+        bg.id, title, bg.u_id, play_date, type, score_mine, score_other, people_numner, address, bg.status, cost, contact, bg.create_time
         from wx_user_game ug
         left join wx_user u on ug.u_id = u.id
+        left join wx_ball_game bg on bg.id = ug.g_id
     </sql>
 
     <select id="selectWxUserGameList" parameterType="WxUserGame" resultMap="WxUserGameResult">
         <include refid="selectWxUserGameVo"/>
         <where>  
             <if test="gId != null "> and g_id = #{gId}</if>
-            <if test="uId != null "> and u_id = #{uId}</if>
+            <if test="uId != null "> and ug.u_id = #{uId}</if>
             <if test="status != null "> and status = #{status}</if>
         </where>
     </select>

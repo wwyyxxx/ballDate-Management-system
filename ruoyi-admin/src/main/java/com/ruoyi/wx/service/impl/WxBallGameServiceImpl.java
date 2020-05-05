@@ -49,6 +49,14 @@ public class WxBallGameServiceImpl implements IWxBallGameService
     {
         WxUserGame wxUserGame = new WxUserGame();
         List<WxBallGame> ballGames = wxBallGameMapper.selectWxBallGameList(wxBallGame);
+        if(wxBallGame!=null&&wxBallGame.getuId()!=null) {
+            WxUserGame wxUserGame1 = new WxUserGame();
+            wxUserGame1.setuId(wxBallGame.getuId());
+            List<WxUserGame> wxUserGameList = wxUserGameMapper.selectWxUserGameList(wxUserGame1);
+            for (WxUserGame userGame:wxUserGameList) {
+                ballGames.add(userGame.getWxBallGame());
+            }
+        }
         for (WxBallGame ballGame: ballGames ) {
             wxUserGame.setgId(ballGame.getId());
             List<WxUserGame> list =  wxUserGameMapper.selectWxUserGameList(wxUserGame);
