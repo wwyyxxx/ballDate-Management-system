@@ -21,6 +21,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <association property="wxUser"    column="u_id" javaType="WxUser" resultMap="WxUserResult" />
     </resultMap>
 
+
+
+
     <resultMap type="WxUser" id="WxUserResult">
         <result property="id"    column="id"    />
         <result property="openid"    column="openid"    />
