@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="uId"    column="u_id"    />
         <result property="status"    column="status"    />
         <result property="createTime"    column="create_time"    />
-        <association  property="wxBallGame"   javaType="WxBallGameResult"        resultMap="WxBallGameResult" />
+        <association  property="wxBallGame"   javaType="WxBallGame"        resultMap="WxBallGameResult" />
         <collection  property="wxUsers"   javaType="java.util.List"        resultMap="WxUserResult" />
     </resultMap>
 
