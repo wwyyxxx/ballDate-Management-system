@@ -57,11 +57,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="cost != null "> and cost = #{cost}</if>
             <if test="contact != null  and contact != ''"> and contact = #{contact}</if>
         </where>
+        order by create_time desc
     </select>
 
     <select id="selectWxBallGameById" parameterType="Long" resultMap="WxBallGameResult">
         <include refid="selectWxBallGameVo"/>
-        where id = #{id}
+        where bg.id = #{id}
     </select>
 
     <insert id="insertWxBallGame" parameterType="WxBallGame" useGeneratedKeys="true" keyProperty="id">

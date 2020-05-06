@@ -2,6 +2,7 @@ package com.ruoyi.wx.controller;
 
 import java.util.List;
 
+import com.ruoyi.wx.domain.WxVideo;
 import com.ruoyi.wx.service.IWxUserGameService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,12 +41,24 @@ public class WxBallGameController extends BaseController
     }
 
     /**
+     * 查询球局列表 后台 后加
+     */
+    @PostMapping("/listForWx")
+    @ResponseBody
+    public TableDataInfo listForWx(@RequestBody(required = false) WxBallGame wxBallGame)
+    {
+        startPage();
+        List<WxBallGame> list = wxBallGameService.selectWxBallGameList(wxBallGame);
+        return getDataTable(list);
+    }
+
+    /**
      * 查询球局列表
      */
-//    @RequiresPermissions("wx:game:list")
+    @RequiresPermissions("wx:game:list")
     @PostMapping("/list")
     @ResponseBody
-    public TableDataInfo list(@RequestBody(required = false) WxBallGame wxBallGame)
+    public TableDataInfo list(WxBallGame wxBallGame)
     {
         startPage();
         List<WxBallGame> list = wxBallGameService.selectWxBallGameList(wxBallGame);
